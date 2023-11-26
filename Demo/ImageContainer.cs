@@ -10,13 +10,13 @@ namespace Demo
     {
         public static List<string> BackgroundElementImage = new()
         { 
-            @"C:\\Users\\Desktop\\source\\repos\\Demo\\Demo\\Images\\Comet.gif",
-            @"C:\Users\Desktop\source\repos\Demo\Demo\Images\FallingMeteor.gif",
+            "Images\\Comet.gif",
+            "Images\\FallingMeteor.gif",
         };
         public static List<string> ShipImage = new()
         { 
-            @"C:\Users\Desktop\source\repos\Demo\Demo\Images\SpaceShipStand.gif",
-            @"C:\Users\Desktop\source\repos\Demo\Demo\Images\player.png",
+            "Images\\SpaceShipStand.gif",
+            "Images\\player.png",
         };
         public static List<string> SkinImage = new() { };
         public static List<string> WeaponImage = new() { };

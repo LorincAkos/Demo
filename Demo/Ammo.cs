@@ -9,7 +9,7 @@ namespace Demo
 {
     internal class Ammo
     {
-        public static Image bullett = Image.FromFile(@"C:\Users\Desktop\source\repos\Demo\Demo\Images\ammo1.png");
+        public static Image bullett = Image.FromFile("Images\\ammo1.png");
         public int x {  get; set; }
         public int y { get; set; }
         public int speed { get; set; }

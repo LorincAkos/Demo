@@ -17,7 +17,11 @@ namespace Demo
         public int SkillPoints { get; set; }
         public int Credit { get; set; }
         public int SpecialCredit { get; set; }
-        public Player(string name, Ship ship, Weapon weapon, Engine engine, int level, int xp, int skillPoints, int credit, int specialCredit)
+
+        public int x { get; set; }
+        public int y { get; set; }
+
+        public Player(string name, Ship ship, Weapon weapon, Engine engine, int level, int xp, int skillPoints, int credit, int specialCredit, int Xpos=300, int Ypos=500)
         {
             Name = name;
             Ship = ship;
@@ -28,6 +32,8 @@ namespace Demo
             SkillPoints = skillPoints;
             Credit = credit;
             SpecialCredit = specialCredit;
+            x = Xpos;
+            y = Ypos;
         }
 
     }
