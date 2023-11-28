@@ -6,6 +6,7 @@ namespace Demo
 {
     public partial class Form1 : Form
     {
+        Image Title;
         Image SrtImg;
         Image ExitImg;
         Image ShopButton;
@@ -27,8 +28,9 @@ namespace Demo
         {
             str = 0;
 
-            SrtImg = Image.FromFile("Images\\StartButton.gif"); ;
-            ExitImg = Image.FromFile("Images\\ExitButton.png"); ;
+            Title  = Image.FromFile("Images\\BigTi.png");
+            SrtImg = Image.FromFile("Images\\StartButton.gif");
+            ExitImg = Image.FromFile("Images\\ExitButton.png");
             ShopButton = Image.FromFile("Images\\ShopButton.png");
 
             LoadPlayer();
@@ -96,12 +98,14 @@ namespace Demo
             Graphics Play = e.Graphics;
             Graphics En = e.Graphics;
             Graphics Am = e.Graphics;
+            Graphics Tit = e.Graphics;
             Graphics Start = e.Graphics;
             Graphics Exit = e.Graphics;
             Graphics ShopBut = e.Graphics;
 
             if (str == 0)
             {
+                Tit.DrawImage(Title, 150, 150, 128, 128);
                 ShopBut.DrawImage(ShopButton, 100, 300, 128, 128);
                 Start.DrawImage(SrtImg, 160, 200, 256, 256);
                 Exit.DrawImage(ExitImg, 170, 320, 256, 256);
@@ -293,12 +297,18 @@ namespace Demo
 
             if (mouse.X >= 100 && mouse.Y >= 310 && mouse.X < 100 + 64 && mouse.Y < 310 + 64)
             {
-                Shop S = new Shop() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                //Title.Visible = false;
-                //label1.Visible = false;
-                S.FormBorderStyle = FormBorderStyle.None;
-                this.Controls.Add(S);
-                S.Show();
+                Shop shop = new Shop() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                shop.FormBorderStyle = FormBorderStyle.None;
+                this.Controls.Add(shop);
+                shop.Show();
+            }
+
+            if (mouse.X >= 100 && mouse.Y >= 310 && mouse.X < 100 + 64 && mouse.Y < 310 + 64)
+            {
+                Base base = new Base() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                base.FormBorderStyle = FormBorderStyle.None;
+                this.Controls.Add(base);
+                base.Show();
             }
         }
 
