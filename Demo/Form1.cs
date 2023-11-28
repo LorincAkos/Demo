@@ -10,6 +10,8 @@ namespace Demo
         Image SrtImg;
         Image ExitImg;
         Image ShopButton;
+        Image BaseButton;
+        //Base b;
 
         Player player;
 
@@ -28,10 +30,11 @@ namespace Demo
         {
             str = 0;
 
-            Title  = Image.FromFile("Images\\BigTi.png");
+            Title = Image.FromFile("Images\\BigTi.png");
             SrtImg = Image.FromFile("Images\\StartButton.gif");
             ExitImg = Image.FromFile("Images\\ExitButton.png");
             ShopButton = Image.FromFile("Images\\ShopButton.png");
+            BaseButton = Image.FromFile("Images\\BaseButton.png");
 
             LoadPlayer();
             AmmoGeneration();
@@ -84,6 +87,7 @@ namespace Demo
             }
 
         }
+
         private void Animator(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -102,10 +106,12 @@ namespace Demo
             Graphics Start = e.Graphics;
             Graphics Exit = e.Graphics;
             Graphics ShopBut = e.Graphics;
+            Graphics BaseBut = e.Graphics;
 
             if (str == 0)
             {
-                Tit.DrawImage(Title, 150, 150, 128, 128);
+                BaseBut.DrawImage(BaseButton, 150, 444, 32, 32);
+                Tit.DrawImage(Title, 150, 150, 256, 128);
                 ShopBut.DrawImage(ShopButton, 100, 300, 128, 128);
                 Start.DrawImage(SrtImg, 160, 200, 256, 256);
                 Exit.DrawImage(ExitImg, 170, 320, 256, 256);
@@ -284,32 +290,34 @@ namespace Demo
         {
             MouseEventArgs mouse = (MouseEventArgs)e;
 
-            if (mouse.X >= 261 && mouse.Y >= 318 && mouse.X < 261 + 75 && mouse.Y < 318 + 23)
+            if (str == 0)
             {
-                str = 1;
-                GameStart();
+                if (mouse.X >= 261 && mouse.Y >= 318 && mouse.X < 261 + 75 && mouse.Y < 318 + 23)
+                {
+                    str = 1;
+                    GameStart();
+                }
+                else if (mouse.X >= 256 && mouse.Y >= 428 && mouse.X < 256 + 75 && mouse.Y < 428 + 23)
+                {
+                    Close();
+                }
+                else if(mouse.X >= 100 && mouse.Y >= 310 && mouse.X < 100 + 64 && mouse.Y < 310 + 64)
+                {
+                    Shop shop = new Shop() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                    shop.FormBorderStyle = FormBorderStyle.None;
+                    this.Controls.Add(shop);
+                    shop.Show();
+                }
+                else if(mouse.X >= 150 && mouse.Y >= 444 && mouse.X < 150 + 32 && mouse.Y < 444 + 32)
+                {
+                    Base b = new Base() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                    b.FormBorderStyle = FormBorderStyle.None;
+                    this.Controls.Add(b);
+                    b.Show();
+                }
             }
 
-            if (mouse.X >= 256 && mouse.Y >= 428 && mouse.X < 256 + 75 && mouse.Y < 428 + 23)
-            {
-                Close();
-            }
-
-            if (mouse.X >= 100 && mouse.Y >= 310 && mouse.X < 100 + 64 && mouse.Y < 310 + 64)
-            {
-                Shop shop = new Shop() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                shop.FormBorderStyle = FormBorderStyle.None;
-                this.Controls.Add(shop);
-                shop.Show();
-            }
-
-            if (mouse.X >= 100 && mouse.Y >= 310 && mouse.X < 100 + 64 && mouse.Y < 310 + 64)
-            {
-                Base base = new Base() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                base.FormBorderStyle = FormBorderStyle.None;
-                this.Controls.Add(base);
-                base.Show();
-            }
+            
         }
 
         private void GameStart()

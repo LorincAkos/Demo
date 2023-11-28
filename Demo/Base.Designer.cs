@@ -28,23 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
+            NameLabel = new Label();
             SuspendLayout();
+            // 
+            // NameLabel
+            // 
+            NameLabel.AutoSize = true;
+            NameLabel.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
+            NameLabel.Location = new Point(217, 9);
+            NameLabel.Name = "NameLabel";
+            NameLabel.Size = new Size(0, 65);
+            NameLabel.TabIndex = 0;
             // 
             // Base
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            BackgroundImage = Properties.Resources.Base_Bg;
+            BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(584, 561);
+            Controls.Add(NameLabel);
+            DoubleBuffered = true;
+            ForeColor = Color.Yellow;
             MaximumSize = new Size(600, 600);
             MinimumSize = new Size(600, 600);
             Name = "Base";
             Text = "Base";
             Load += Base_Load;
+            Paint += Base_Paint;
+            MouseClick += Base_MouseClick;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label NameLabel;
     }
 }
