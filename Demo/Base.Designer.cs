@@ -41,6 +41,7 @@
             MinimumSize = new Size(600, 600);
             Name = "Base";
             Text = "Base";
+            Load += Base_Load;
             ResumeLayout(false);
         }
 
