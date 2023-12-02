@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Demo
 {
     public partial class Game : Form
@@ -22,7 +23,6 @@ namespace Demo
         public Game()
         {
             InitializeComponent();
-
 
             enemy = new List<Enemy>();
             player = new Player("Pity", new Ship(0, 0, 0, 3, 1, 0, 1), new Weapon(0, 1, 1, 1), new Engine(0, 1), 1, 0, 0, 0, 0);
@@ -114,13 +114,14 @@ namespace Demo
             }
 
             Play.DrawImage(Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(player.Ship.Id)]), player.x, player.y, 32, 32);
+
         }
 
         private void BG_Timer_Tick(object sender, EventArgs e)
         {
             for (int i = 0; i < BgElement.Count; i++)
             {
-                BgElement[i].y += 7;
+                BgElement[i].y += 2;
 
                 if (BgElement[i].y > 600)
                 {
@@ -128,23 +129,25 @@ namespace Demo
                     BgElement[i].x = RandomNumberGenerator.GenerateNumber(20, 500);
                 }
             }
+                        this.Invalidate();
+
         }
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.D)
+            if (e.KeyCode == Keys.Right)
             {
                 Player_Right_Timer.Start();
             }
-            if (e.KeyCode == Keys.A)
+            if (e.KeyCode == Keys.Left)
             {
                 Player_Left_Timer.Start();
             }
-            if (e.KeyCode == Keys.W)
+            if (e.KeyCode == Keys.Up)
             {
                 Player_Up_Timer.Start();
             }
-            if (e.KeyCode == Keys.S)
+            if (e.KeyCode == Keys.Down)
             {
                 Player_Down_Timer.Start();
             }
@@ -160,6 +163,8 @@ namespace Demo
             {
                 player.x -= 5;
             }
+            this.Invalidate();
+
         }
 
         private void Player_Right_Timer_Tick_1(object sender, EventArgs e)
@@ -168,6 +173,8 @@ namespace Demo
             {
                 player.x += 5;
             }
+            this.Invalidate();
+
         }
 
         private void Player_Up_Timer_Tick_1(object sender, EventArgs e)
@@ -176,6 +183,8 @@ namespace Demo
             {
                 player.y -= 5;
             }
+            this.Invalidate();
+
         }
 
         private void Player_Down_Timer_Tick_1(object sender, EventArgs e)
@@ -184,6 +193,8 @@ namespace Demo
             {
                 player.y += 5;
             }
+            this.Invalidate();
+
         }
 
         private void Game_KeyUp(object sender, KeyEventArgs e)
@@ -211,6 +222,8 @@ namespace Demo
                     enemy[i].Y = -50;
                 }
             }
+            this.Invalidate();
+
         }
 
         private void Hit_Timer_Tick(object sender, EventArgs e)
@@ -252,7 +265,7 @@ namespace Demo
             {
                 if (bullet[i].y > -100)
                 {
-                    bullet[i].y -= 20;
+                    bullet[i].y -= 10;
                 }
                 else
                 {
@@ -260,6 +273,7 @@ namespace Demo
                     bullet[i].y = player.y;
                 }
             }
+            this.Invalidate();
         }
 
         private void GameStart()

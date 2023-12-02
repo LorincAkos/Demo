@@ -43,6 +43,9 @@
     <None Update="Images\Base_Bg.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Images\BigTi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Images\Comet.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
