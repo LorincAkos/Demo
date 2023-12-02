@@ -104,8 +104,14 @@ namespace Demo
             {
                 Am.DrawImage(Ammo.bullett, bullet[i].x, bullet[i].y, 16, 16);
             }
-
-            Play.DrawImage(Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(Player.Ship.Id)]), Player.x, Player.y, 32, 32);
+            if (Player.Ship.SkinType == 0)
+            {
+                Play.DrawImage(Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(Player.Ship.Id)]), Player.x, Player.y, 32, 32);
+            }
+            else
+            {
+                Play.DrawImage(Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(Player.Ship.SkinType)]), Player.x, Player.y, 32, 32);
+            }
 
         }
 
