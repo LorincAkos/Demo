@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    internal class Engine
+    public class Engine
     {
 
         public EnumContainer.EngineType EngineType { get; set; }

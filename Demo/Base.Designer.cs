@@ -54,7 +54,6 @@
             MinimumSize = new Size(600, 600);
             Name = "Base";
             Text = "Base";
-            Load += Base_Load;
             Paint += Base_Paint;
             MouseClick += Base_MouseClick;
             ResumeLayout(false);

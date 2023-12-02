@@ -19,16 +19,11 @@ namespace Demo
         Image Mine;
         Image WorkBench;
         Image DefSys;
-
         Image ExitBase;
-
+        
         public Base()
         {
             InitializeComponent();
-        }
-
-        private void Base_Load(object sender, EventArgs e)
-        {
             TheBase = Image.FromFile("Images\\Base.png");
             Inventory = Image.FromFile("Images\\Inventory.png");
             Mine = Image.FromFile("Images\\Mine.png");
@@ -36,6 +31,8 @@ namespace Demo
             DefSys = Image.FromFile("Images\\DefenseSystem.png");
             ExitBase = Image.FromFile("Images\\ExitButton.png");
         }
+
+        
 
         private void Base_Paint(object sender, PaintEventArgs e)
         {
@@ -68,7 +65,7 @@ namespace Demo
 
             if (mouse.X >= 250 && mouse.Y >= 250 && mouse.X < 250 + 96 && mouse.Y < 250 + 96)
             {
-                NameLabel.Text = "Base";
+
             }
 
             if (mouse.X >= 400 && mouse.Y >= 100 && mouse.X < 400 + 96 && mouse.Y < 100 + 96)
@@ -81,17 +78,17 @@ namespace Demo
 
             if (mouse.X >= 100 && mouse.Y >= 400 && mouse.X < 100 + 96 && mouse.Y < 400 + 96)
             {
-                NameLabel.Text = "Mine";
+
             }
 
             if (mouse.X >= 400 && mouse.Y >= 400 && mouse.X < 400 + 96 && mouse.Y < 400 + 96)
             {
-                NameLabel.Text = "Workbench";
+
             }
 
             if (mouse.X >= 100 && mouse.Y >= 100 && mouse.X < 100 + 96 && mouse.Y < 100 + 96)
             {
-                NameLabel.Text = "Defense System";
+
             }
         }
     }

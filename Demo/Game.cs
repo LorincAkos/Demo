@@ -13,9 +13,6 @@ namespace Demo
 {
     public partial class Game : Form
     {
-
-        Player player;
-
         List<BackgroundElements> BgElement;
         List<Enemy> enemy;
         List<Ammo> bullet;
@@ -25,7 +22,6 @@ namespace Demo
             InitializeComponent();
 
             enemy = new List<Enemy>();
-            player = new Player("Pity", new Ship(0, 0, 0, 3, 1, 0, 1), new Weapon(0, 1, 1, 1), new Engine(0, 1), 1, 0, 0, 0, 0);
             BgElement = new List<BackgroundElements>();
             bullet = new();
 
@@ -35,10 +31,6 @@ namespace Demo
             GameStart();
         }
 
-        private void Game_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void Spawn()
         {
@@ -113,7 +105,7 @@ namespace Demo
                 Am.DrawImage(Ammo.bullett, bullet[i].x, bullet[i].y, 16, 16);
             }
 
-            Play.DrawImage(Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(player.Ship.Id)]), player.x, player.y, 32, 32);
+            Play.DrawImage(Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(Player.Ship.Id)]), Player.x, Player.y, 32, 32);
 
         }
 
@@ -129,7 +121,7 @@ namespace Demo
                     BgElement[i].x = RandomNumberGenerator.GenerateNumber(20, 500);
                 }
             }
-                        this.Invalidate();
+            this.Invalidate();
 
         }
 
@@ -159,9 +151,9 @@ namespace Demo
 
         private void Player_Left_Timer_Tick_1(object sender, EventArgs e)
         {
-            if (player.x > 0)
+            if (Player.x > 0)
             {
-                player.x -= 5;
+                Player.x -= 5;
             }
             this.Invalidate();
 
@@ -169,9 +161,9 @@ namespace Demo
 
         private void Player_Right_Timer_Tick_1(object sender, EventArgs e)
         {
-            if (player.x < 500)
+            if (Player.x < 500)
             {
-                player.x += 5;
+                Player.x += 5;
             }
             this.Invalidate();
 
@@ -179,9 +171,9 @@ namespace Demo
 
         private void Player_Up_Timer_Tick_1(object sender, EventArgs e)
         {
-            if (player.y > 0)
+            if (Player.y > 0)
             {
-                player.y -= 5;
+                Player.y -= 5;
             }
             this.Invalidate();
 
@@ -189,9 +181,9 @@ namespace Demo
 
         private void Player_Down_Timer_Tick_1(object sender, EventArgs e)
         {
-            if (player.y < 500)
+            if (Player.y < 500)
             {
-                player.y += 5;
+                Player.y += 5;
             }
             this.Invalidate();
 
@@ -246,12 +238,12 @@ namespace Demo
                 }
 
 
-                if (player.x >= enemy[i].X && player.y >= enemy[i].Y && player.x < enemy[i].X + 32 && player.y < enemy[i].Y + 32)
+                if (Player.x >= enemy[i].X && Player.y >= enemy[i].Y && Player.x < enemy[i].X + 32 && Player.y < enemy[i].Y + 32)
                 {
                     enemy[i].X = RandomNumberGenerator.GenerateNumber(0, 500);
                     enemy[i].Y = -30;
-                    player.Ship.Hp -= 1;
-                    if (player.Ship.Hp == 0)
+                    Player.Ship.Hp -= 1;
+                    if (Player.Ship.Hp == 0)
                     {
                         Close();
                     }
@@ -269,8 +261,8 @@ namespace Demo
                 }
                 else
                 {
-                    bullet[i].x = player.x + 9;
-                    bullet[i].y = player.y;
+                    bullet[i].x = Player.x + 9;
+                    bullet[i].y = Player.y;
                 }
             }
             this.Invalidate();

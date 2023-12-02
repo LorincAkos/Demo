@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    internal class Ship
+    public class Ship
     {
         public EnumContainer.ShipType Id { get; set; }
         public EnumContainer.SkinType SkinType { get; set; }

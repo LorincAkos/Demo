@@ -91,7 +91,6 @@
             MinimumSize = new Size(600, 600);
             Name = "Game";
             Text = "Game";
-            Load += Game_Load;
             Paint += Game_Paint;
             KeyDown += Game_KeyDown;
             KeyUp += Game_KeyUp;

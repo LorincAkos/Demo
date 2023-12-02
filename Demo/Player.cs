@@ -6,35 +6,36 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    internal class Player
+    public static class Player
     {
-        public string Name { get; set; }
-        public Ship Ship { get; set; }
-        public Weapon Weapon { get; set; }
-        public Engine Engine { get; set; }
-        public int Level { get; set; }
-        public int Xp { get; set; }
-        public int SkillPoints { get; set; }
-        public int Credit { get; set; }
-        public int SpecialCredit { get; set; }
+        public static string Name { get; set; }
+        public static Ship Ship { get; set; }
+        public static Weapon Weapon { get; set; }
+        public static Engine Engine { get; set; }
+        public static int Level { get; set; }
+        public static int Xp { get; set; }
+        public static int SkillPoints { get; set; }
+        public static int Credit { get; set; }
+        public static int SpecialCredit { get; set; }
 
-        public int x { get; set; }
-        public int y { get; set; }
+        public static int x { get; set; }
+        public static int y { get; set; }
 
-        public Player(string name, Ship ship, Weapon weapon, Engine engine, int level, int xp, int skillPoints, int credit, int specialCredit, int Xpos=300, int Ypos=500)
+        static Player()
         {
-            Name = name;
-            Ship = ship;
-            Weapon = weapon;
-            Engine = engine;
-            Level = level;
-            Xp = xp;
-            SkillPoints = skillPoints;
-            Credit = credit;
-            SpecialCredit = specialCredit;
-            x = Xpos;
-            y = Ypos;
+            Name = "Pity";
+            Ship = new Ship(0, 0, 0, 3, 1, 0, 1);
+            Weapon = new Weapon(0, 1, 1, 1);
+            Engine = new Engine(0, 1);
+            Level = 1;
+            Xp = 0;
+            SkillPoints = 0;
+            Credit = 100;
+            SpecialCredit = 0;
+            x = 300;
+            y = 500;
         }
+        
 
     }
 }

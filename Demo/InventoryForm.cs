@@ -1,3 +1,5 @@
+using Demo;
+
 namespace SoftwaretechInventory
 {
     public partial class InventoryForm : Form
@@ -5,11 +7,11 @@ namespace SoftwaretechInventory
         public InventoryForm()
         {
             InitializeComponent();
-            playerLevelDisplay.Text = "Level: 1";
-            healtDisplay.Text = "320";
-            damageDisplay.Text = "120";
-            fireRateDisplay.Text = "1.2";
-            speedDisplay.Text = "20";
+            playerLevelDisplay.Text = "Level: " + Player.Level ;
+            healtDisplay.Text = Player.Ship.Hp.ToString();
+            damageDisplay.Text = Player.Weapon.Damage.ToString();
+            fireRateDisplay.Text = Player.Weapon.FireRate.ToString();
+            speedDisplay.Text = Player.Engine.Speed.ToString();
         }
 
         //Replaces the equiped weapon with the one you clik on

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    internal class Weapon
+    public class Weapon
     {
 
         public EnumContainer.WeaponType WeaponType { get; set; }

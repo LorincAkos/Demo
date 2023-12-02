@@ -14,12 +14,11 @@ namespace Demo
 
 
 
-        int str;
+
 
         public Form1()
         {
             InitializeComponent();
-            str = 0;
 
             Title = Image.FromFile("Images\\BigTi.png");
             SrtImg = Image.FromFile("Images\\StartButton.gif");
@@ -30,13 +29,6 @@ namespace Demo
 
 
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
@@ -59,40 +51,34 @@ namespace Demo
         {
             MouseEventArgs mouse = (MouseEventArgs)e;
 
-            if (str == 0)
+
+            if (mouse.X >= 261 && mouse.Y >= 318 && mouse.X < 261 + 75 && mouse.Y < 318 + 23)
             {
-                if (mouse.X >= 261 && mouse.Y >= 318 && mouse.X < 261 + 75 && mouse.Y < 318 + 23)
-                {
-                    str = 1;
-                    Game game = new Game() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                    game.FormBorderStyle = FormBorderStyle.None;
-                    this.Controls.Add(game);
-                    game.Show();
-                }
-                else if (mouse.X >= 256 && mouse.Y >= 428 && mouse.X < 256 + 75 && mouse.Y < 428 + 23)
-                {
-                    Close();
-                }
-                else if (mouse.X >= 100 && mouse.Y >= 310 && mouse.X < 100 + 64 && mouse.Y < 310 + 64)
-                {
-                    Shop shop = new Shop() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                    shop.FormBorderStyle = FormBorderStyle.None;
-                    this.Controls.Add(shop);
-                    shop.Show();
-                }
-                else if (mouse.X >= 150 && mouse.Y >= 444 && mouse.X < 150 + 32 && mouse.Y < 444 + 32)
-                {
-                    Base b = new Base() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                    b.FormBorderStyle = FormBorderStyle.None;
-                    this.Controls.Add(b);
-                    b.Show();
-                }
+                Game game = new Game() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                game.FormBorderStyle = FormBorderStyle.None;
+                this.Controls.Add(game);
+                game.Show();
             }
-            
+            else if (mouse.X >= 256 && mouse.Y >= 428 && mouse.X < 256 + 75 && mouse.Y < 428 + 23)
+            {
+                Close();
+            }
+            else if (mouse.X >= 100 && mouse.Y >= 310 && mouse.X < 100 + 64 && mouse.Y < 310 + 64)
+            {
+                Shop shop = new Shop() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                shop.FormBorderStyle = FormBorderStyle.None;
+                this.Controls.Add(shop);
+                shop.Show();
+            }
+            else if (mouse.X >= 150 && mouse.Y >= 444 && mouse.X < 150 + 32 && mouse.Y < 444 + 32)
+            {
+                Base b = new Base() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                b.FormBorderStyle = FormBorderStyle.None;
+                this.Controls.Add(b);
+                b.Show();
+            }
+
         }
-
-
-
 
     }
 }

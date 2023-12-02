@@ -41,7 +41,6 @@
             MinimumSize = new Size(600, 600);
             Name = "Form1";
             Text = "Space Survivors";
-            Load += Form1_Load;
             Paint += Form1_Paint;
             MouseClick += Form1_MouseClick;
             ResumeLayout(false);
