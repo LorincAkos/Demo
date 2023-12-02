@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftwaretechInventory;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -72,7 +73,10 @@ namespace Demo
 
             if (mouse.X >= 400 && mouse.Y >= 100 && mouse.X < 400 + 96 && mouse.Y < 100 + 96)
             {
-                NameLabel.Text = "Inventory";
+                InventoryForm inventory = new InventoryForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                inventory.FormBorderStyle = FormBorderStyle.None;
+                this.Controls.Add(inventory);
+                inventory.Show();
             }
 
             if (mouse.X >= 100 && mouse.Y >= 400 && mouse.X < 100 + 96 && mouse.Y < 400 + 96)
