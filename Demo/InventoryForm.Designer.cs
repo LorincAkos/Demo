@@ -258,6 +258,7 @@ namespace SoftwaretechInventory
             backButton.TabIndex = 22;
             backButton.Text = "Back";
             backButton.UseVisualStyleBackColor = false;
+            backButton.Click += backButton_Click;
             // 
             // panel1
             // 
@@ -370,7 +371,7 @@ namespace SoftwaretechInventory
             Controls.Add(playerLevelProgress);
             Controls.Add(pictureBox1);
             Name = "InventoryForm";
-            Text = "Form1";
+            Text = "Inventory";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)weaponEquiped).EndInit();
             ((System.ComponentModel.ISupportInitialize)weapon1).EndInit();

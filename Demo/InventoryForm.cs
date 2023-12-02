@@ -21,5 +21,9 @@ namespace SoftwaretechInventory
             this.weaponEquiped.Image = pictureBox.Image;
         }
 
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
