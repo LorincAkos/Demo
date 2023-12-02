@@ -37,6 +37,8 @@
             Player_Right_Timer = new System.Windows.Forms.Timer(components);
             Enemy_Move_Timer = new System.Windows.Forms.Timer(components);
             Player_Left_Timer = new System.Windows.Forms.Timer(components);
+            AttackSpeedDefault = new System.Windows.Forms.Timer(components);
+            AttackSpeed = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // BG_Timer
@@ -47,7 +49,7 @@
             // 
             // Ammo_Move_Timer
             // 
-            Ammo_Move_Timer.Interval = 50;
+            Ammo_Move_Timer.Interval = 16;
             Ammo_Move_Timer.Tick += Ammo_Move_Timer_Tick;
             // 
             // Player_Down_Timer
@@ -80,15 +82,27 @@
             Player_Left_Timer.Interval = 5;
             Player_Left_Timer.Tick += Player_Left_Timer_Tick_1;
             // 
+            // AttackSpeedDefault
+            // 
+            AttackSpeedDefault.Enabled = true;
+            AttackSpeedDefault.Interval = 499;
+            AttackSpeedDefault.Tick += AttackSpeedDefault_Tick;
+            // 
+            // AttackSpeed
+            // 
+            AttackSpeed.Interval = 500;
+            AttackSpeed.Tick += AttackSpeed_Tick;
+            // 
             // Game
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(584, 561);
+            ClientSize = new Size(665, 737);
             DoubleBuffered = true;
-            MaximumSize = new Size(600, 600);
-            MinimumSize = new Size(600, 600);
+            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(683, 784);
+            MinimumSize = new Size(683, 784);
             Name = "Game";
             Text = "Game";
             Paint += Game_Paint;
@@ -107,5 +121,7 @@
         private System.Windows.Forms.Timer Player_Right_Timer;
         private System.Windows.Forms.Timer Enemy_Move_Timer;
         private System.Windows.Forms.Timer Player_Left_Timer;
+        private System.Windows.Forms.Timer AttackSpeedDefault;
+        private System.Windows.Forms.Timer AttackSpeed;
     }
 }

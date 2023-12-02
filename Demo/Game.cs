@@ -102,15 +102,15 @@ namespace Demo
 
             for (int i = 0; i < bullet.Count; i++)
             {
-                Am.DrawImage(Ammo.bullett, bullet[i].x, bullet[i].y, 16, 16);
+                Am.DrawImage(Ammo.bullett, bullet[i].x, bullet[i].y, 8, 8);
             }
             if (Player.Ship.SkinType == 0)
             {
-                Play.DrawImage(Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(Player.Ship.Id)]), Player.x, Player.y, 32, 32);
+                Play.DrawImage(Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(Player.Ship.Id)]), Player.x, Player.y, 64, 64);
             }
             else
             {
-                Play.DrawImage(Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(Player.Ship.SkinType)]), Player.x, Player.y, 32, 32);
+                Play.DrawImage(Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(Player.Ship.SkinType)]), Player.x, Player.y, 64, 64);
             }
 
         }
@@ -135,23 +135,53 @@ namespace Demo
         {
             if (e.KeyCode == Keys.D)
             {
+                Player_Left_Timer.Stop();
                 Player_Right_Timer.Start();
             }
             if (e.KeyCode == Keys.A)
             {
+                Player_Right_Timer.Stop();
                 Player_Left_Timer.Start();
             }
             if (e.KeyCode == Keys.W)
             {
+                Player_Down_Timer.Stop();
                 Player_Up_Timer.Start();
             }
             if (e.KeyCode == Keys.S)
             {
+                Player_Up_Timer.Stop();
                 Player_Down_Timer.Start();
             }
             if (e.KeyCode == Keys.Space)
             {
-                Ammo_Move_Timer.Start();
+                AttackSpeed.Start();
+            }
+        }
+        private void Game_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.D)
+            {
+                Player_Right_Timer.Stop();
+
+            }
+            if (e.KeyCode == Keys.A)
+            {
+                Player_Left_Timer.Stop();
+
+            }
+            if (e.KeyCode == Keys.S)
+            {
+                Player_Down_Timer.Stop();
+            }
+            if (e.KeyCode == Keys.W)
+            {
+                Player_Up_Timer.Stop();
+            }
+            if (e.KeyCode == Keys.Space)
+            {
+                AttackSpeed.Stop();
+                AttackSpeedDefault.Start();
             }
         }
 
@@ -161,7 +191,6 @@ namespace Demo
             {
                 Player.x -= 5;
             }
-            this.Invalidate();
 
         }
 
@@ -171,8 +200,6 @@ namespace Demo
             {
                 Player.x += 5;
             }
-            this.Invalidate();
-
         }
 
         private void Player_Up_Timer_Tick_1(object sender, EventArgs e)
@@ -181,27 +208,19 @@ namespace Demo
             {
                 Player.y -= 5;
             }
-            this.Invalidate();
 
         }
 
         private void Player_Down_Timer_Tick_1(object sender, EventArgs e)
         {
-            if (Player.y < 500)
+            if (Player.y < 600)
             {
                 Player.y += 5;
             }
-            this.Invalidate();
 
         }
 
-        private void Game_KeyUp(object sender, KeyEventArgs e)
-        {
-            Player_Right_Timer.Stop();
-            Player_Left_Timer.Stop();
-            Player_Up_Timer.Stop();
-            Player_Down_Timer.Stop();
-        }
+
 
         private void Enemy_Move_Timer_Tick_1(object sender, EventArgs e)
         {
@@ -259,18 +278,24 @@ namespace Demo
 
         private void Ammo_Move_Timer_Tick(object sender, EventArgs e)
         {
+            List<Ammo> ammokToRemove = new List<Ammo>();
+
             for (int i = 0; i < bullet.Count; i++)
             {
-                if (bullet[i].y > -100)
+                if (bullet[i].y > -50)
                 {
-                    bullet[i].y -= 10;
+                    bullet[i].y -= 5;
                 }
                 else
                 {
                     bullet[i].x = Player.x + 9;
-                    bullet[i].y = Player.y;
+                    ammokToRemove.Add(bullet[i]);
                 }
             }
+            foreach (Ammo ammoToRemove in ammokToRemove)
+            {
+                bullet.Remove(ammoToRemove);
+            } 
             this.Invalidate();
         }
 
@@ -279,8 +304,25 @@ namespace Demo
             BG_Timer.Start();
             Enemy_Move_Timer.Start();
             Hit_Timer.Start();
+            Ammo_Move_Timer.Start();
+
         }
 
+        private void AttackSpeedDefault_Tick(object sender, EventArgs e)
+        {
+            AttackSpeed.Interval = 1;
+            AttackSpeedDefault.Stop();
+        }
 
+        private void AttackSpeed_Tick(object sender, EventArgs e)
+        {
+            AttackSpeed.Interval = 500;
+            Ammo basd = new Ammo();
+            basd.x = Player.x + 29;
+            basd.y = Player.y +10;
+            bullet.Add(basd);
+            this.Invalidate();
+
+        }
     }
 }
