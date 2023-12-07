@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 
 namespace Demo
@@ -44,11 +45,11 @@ namespace Demo
         {
             for (int i = 0; i < 10; i++)
             {
-                Enemy fill = new(enemyImage,(i + 1) * 50);
+                Enemy fill = new(enemyImage, (i + 1) * 49);
                 enemy.Add(fill);
             }
 
-            for (int i = 0; i < enemy.Count; i++)
+            for (int i = 0; i < 10; i++)
             {
                 ImageAnimator.Animate(enemy[i].enemy, this.Animator);
             }
@@ -69,15 +70,19 @@ namespace Demo
 
             for (int i = 0; i < 5; i++)
             {
-                BackgroundElements me = new (bgElementImage);
+                BackgroundElements me = new(bgElementImage);
                 BgElement.Add(me);
-            }
-
-            for (int i = 0; i < BgElement.Count; i++)
-            {
                 ImageAnimator.Animate(BgElement[i].bgElements, this.Animator);
+
             }
 
+
+            for (int i = 5; i < 100; i++)
+            {
+                BackgroundElements me = new(Image.FromFile(ImageContainer.BackgroundElementImage[2]));
+                BgElement.Add(me);
+
+            }
         }
 
         private void Animator(object? sender, EventArgs e)
@@ -90,14 +95,26 @@ namespace Demo
             ImageAnimator.UpdateFrames();
 
             Graphics Met = e.Graphics;
-            Graphics Com = e.Graphics;
             Graphics Play = e.Graphics;
             Graphics En = e.Graphics;
             Graphics Am = e.Graphics;
 
-            for (int i = 0; i < BgElement.Count; i++)
+
+            for (int i = 0; i < 5; i++)
             {
                 Met.DrawImage(BgElement[i].bgElements, BgElement[i].x, BgElement[i].y, 64, 64);
+            }
+            for (int i = 5; i < 50; i++)
+            {
+                Met.DrawImage(BgElement[i].bgElements, BgElement[i].x, BgElement[i].y, 1, 1);
+            }
+            for (int i = 50; i < 75; i++)
+            {
+                Met.DrawImage(BgElement[i].bgElements, BgElement[i].x, BgElement[i].y, 3, 3);
+            }
+            for (int i = 75; i < 100; i++)
+            {
+                Met.DrawImage(BgElement[i].bgElements, BgElement[i].x, BgElement[i].y, 5, 5);
             }
 
             for (int i = 0; i < enemy.Count; i++)
@@ -291,18 +308,21 @@ namespace Demo
                 }
 
 
-                if (Player.x >= enemy[i].X && Player.y >= enemy[i].Y && Player.x < enemy[i].X + 32 && Player.y < enemy[i].Y + 32)
+                if ((Player.x >= enemy[i].X && Player.y+32 >= enemy[i].Y && Player.x  <= enemy[i].X + 32 && Player.y+32 <= enemy[i].Y + 40) || (Player.x + 32 >= enemy[i].X && Player.y+32 >= enemy[i].Y && Player.x + 32 <= enemy[i].X + 32 && Player.y+32 <= enemy[i].Y + 40) || (Player.x+32 >= enemy[i].X && Player.y >= enemy[i].Y && Player.x+32 <= enemy[i].X + 32 && Player.y <= enemy[i].Y + 40) || (Player.x >= enemy[i].X && Player.y >= enemy[i].Y && Player.x <= enemy[i].X + 32 && Player.y <= enemy[i].Y + 40))
                 {
                     enemy[i].X = RandomNumberGenerator.GenerateNumber(0, 500);
                     enemy[i].Y = -30;
                     Player.Ship.Hp -= 1;
                     if (Player.Ship.Hp == 0)
                     {
+                        Player.x = 300;
+                        Player.y = 500;
+                        Player.Ship.Hp = 3;
                         Close();
                     }
                 }
 
-                if(levelCleared)
+                if (levelCleared)
                 {
                     break;
                 }
@@ -328,7 +348,7 @@ namespace Demo
             foreach (Ammo ammoToRemove in ammokToRemove)
             {
                 bullet.Remove(ammoToRemove);
-            } 
+            }
             this.Invalidate();
         }
 
@@ -352,10 +372,9 @@ namespace Demo
             AttackSpeed.Interval = 500;
             Ammo basd = new Ammo();
             basd.x = Player.x + 29;
-            basd.y = Player.y +10;
+            basd.y = Player.y + 10;
             bullet.Add(basd);
             this.Invalidate();
-
         }
     }
 }

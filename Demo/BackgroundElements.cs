@@ -13,8 +13,8 @@ namespace Demo
         public Image bgElements { get; set; }
 
         public BackgroundElements(Image bgElement) {
-            x = RandomNumberGenerator.GenerateNumber(-50, -20);
-            y = RandomNumberGenerator.GenerateNumber(20, 500);
+            x = RandomNumberGenerator.GenerateNumber(-10, 550);
+            y = RandomNumberGenerator.GenerateNumber(20, 550);
             bgElements = bgElement;
         }
     }

@@ -9,6 +9,7 @@ namespace Demo
         { 
             "Images\\Comet.gif",
             "Images\\FallingMeteor.gif",
+            "Images\\Star.png",
         };
         public static List<string> ShipImage = new()
         { 
