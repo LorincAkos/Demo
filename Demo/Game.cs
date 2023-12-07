@@ -283,6 +283,7 @@ namespace Demo
                         Ammo_Move_Timer.Stop();
                         AttackSpeedDefault.Stop();
                         AttackSpeed.Stop();
+                        Levels.CurrentLevel++;
                         MessageBox.Show("Levels cleared!!!");
                         Close();
                         break;
