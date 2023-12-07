@@ -16,6 +16,9 @@ namespace Demo
         List<BackgroundElements> BgElement;
         List<Enemy> enemy;
         List<Ammo> bullet;
+        int enemyCount;
+        int enemyKilled;
+        bool levelCleared;
 
         public Game()
         {
@@ -25,18 +28,23 @@ namespace Demo
             BgElement = new List<BackgroundElements>();
             bullet = new();
 
+            Levels.GetLevelInfo(Levels.CurrentLevel, out int enemyCount_, out Image enemyImage, out Color background, out Image bgElementImage);
+            enemyCount = enemyCount_;
+            enemyKilled = 0;
+            levelCleared = false;
             AmmoGeneration();
-            Spawn();
-            GenerateBG();
+            Spawn(enemyImage);
+            GenerateBG(bgElementImage);
+            BackColor = background;
             GameStart();
         }
 
 
-        private void Spawn()
+        private void Spawn(Image enemyImage)
         {
             for (int i = 0; i < 10; i++)
             {
-                Enemy fill = new((i + 1) * 50);
+                Enemy fill = new(enemyImage,(i + 1) * 50);
                 enemy.Add(fill);
             }
 
@@ -56,12 +64,12 @@ namespace Demo
             }
         }
 
-        private void GenerateBG()
+        private void GenerateBG(Image bgElementImage)
         {
 
             for (int i = 0; i < 5; i++)
             {
-                BackgroundElements me = new BackgroundElements();
+                BackgroundElements me = new (bgElementImage);
                 BgElement.Add(me);
             }
 
@@ -259,6 +267,25 @@ namespace Demo
                         bullet[j].y = -200;
                         enemy[i].X = RandomNumberGenerator.GenerateNumber(0, 500);
                         enemy[i].Y = -75;
+                        enemyKilled++;
+                    }
+
+                    if (enemyKilled == enemyCount)
+                    {
+                        levelCleared = true;
+                        Hit_Timer.Stop();
+                        Enemy_Move_Timer.Stop();
+                        BG_Timer.Stop();
+                        Player_Left_Timer.Stop();
+                        Player_Down_Timer.Stop();
+                        Player_Right_Timer.Stop();
+                        Player_Up_Timer.Stop();
+                        Ammo_Move_Timer.Stop();
+                        AttackSpeedDefault.Stop();
+                        AttackSpeed.Stop();
+                        MessageBox.Show("Levels cleared!!!");
+                        Close();
+                        break;
                     }
                 }
 
@@ -272,6 +299,11 @@ namespace Demo
                     {
                         Close();
                     }
+                }
+
+                if(levelCleared)
+                {
+                    break;
                 }
             }
         }

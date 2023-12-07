@@ -6,9 +6,9 @@
         public Image enemy { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
-        public Enemy(int Xpos)
+        public Enemy(Image enemyImage,int Xpos)
         {
-            enemy = Image.FromFile(@"Images\\E1.gif");
+            enemy = enemyImage;
             if (Xpos > 500)
             {
                 X = (Xpos - 500);

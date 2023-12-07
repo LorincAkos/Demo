@@ -26,7 +26,7 @@ namespace Demo
             ShopButton = Image.FromFile("Images\\ShopButton.png");
             BaseButton = Image.FromFile("Images\\BaseButton.png");
 
-
+            ImageAnimator.Animate(SrtImg, this.Animator);
 
         }
 
@@ -78,6 +78,11 @@ namespace Demo
                 b.Show();
             }
 
+        }
+
+        private void Animator(object? sender, EventArgs e)
+        {
+            this.Invalidate();
         }
 
     }

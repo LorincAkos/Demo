@@ -12,10 +12,10 @@ namespace Demo
         public int y { get; set; }
         public Image bgElements { get; set; }
 
-        public BackgroundElements() {
+        public BackgroundElements(Image bgElement) {
             x = RandomNumberGenerator.GenerateNumber(-50, -20);
             y = RandomNumberGenerator.GenerateNumber(20, 500);
-            bgElements = Image.FromFile("Images\\FallingMeteor.gif");
+            bgElements = bgElement;
         }
     }
 }
