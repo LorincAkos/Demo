@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 
 namespace Demo
@@ -17,6 +18,10 @@ namespace Demo
         List<Enemy> enemy;
         List<Ammo> bullet;
         Sounds Hang;
+        int enemyCount;
+        int enemyKilled;
+        bool levelCleared;
+
         public Game()
         {
             InitializeComponent();
@@ -26,22 +31,27 @@ namespace Demo
             bullet = new();
             Hang = new Sounds();
 
+            Levels.GetLevelInfo(Levels.CurrentLevel, out int enemyCount_, out Image enemyImage, out Color background, out Image bgElementImage);
+            enemyCount = enemyCount_;
+            enemyKilled = 0;
+            levelCleared = false;
             AmmoGeneration();
-            Spawn();
-            GenerateBG();
+            Spawn(enemyImage);
+            GenerateBG(bgElementImage);
+            BackColor = background;
             GameStart();
         }
 
 
-        private void Spawn()
+        private void Spawn(Image enemyImage)
         {
             for (int i = 0; i < 10; i++)
             {
-                Enemy fill = new((i + 1) * 50);
+                Enemy fill = new(enemyImage, (i + 1) * 49);
                 enemy.Add(fill);
             }
 
-            for (int i = 0; i < enemy.Count; i++)
+            for (int i = 0; i < 10; i++)
             {
                 ImageAnimator.Animate(enemy[i].enemy, this.Animator);
             }
@@ -58,20 +68,24 @@ namespace Demo
             }
         }
 
-        private void GenerateBG()
+        private void GenerateBG(Image bgElementImage)
         {
 
             for (int i = 0; i < 5; i++)
             {
-                BackgroundElements me = new BackgroundElements();
+                BackgroundElements me = new(bgElementImage);
                 BgElement.Add(me);
-            }
-
-            for (int i = 0; i < BgElement.Count; i++)
-            {
                 ImageAnimator.Animate(BgElement[i].bgElements, this.Animator);
+
             }
 
+
+            for (int i = 5; i < 100; i++)
+            {
+                BackgroundElements me = new(Image.FromFile(ImageContainer.BackgroundElementImage[2]));
+                BgElement.Add(me);
+
+            }
         }
 
         private void Animator(object? sender, EventArgs e)
@@ -84,14 +98,26 @@ namespace Demo
             ImageAnimator.UpdateFrames();
 
             Graphics Met = e.Graphics;
-            Graphics Com = e.Graphics;
             Graphics Play = e.Graphics;
             Graphics En = e.Graphics;
             Graphics Am = e.Graphics;
 
-            for (int i = 0; i < BgElement.Count; i++)
+
+            for (int i = 0; i < 5; i++)
             {
                 Met.DrawImage(BgElement[i].bgElements, BgElement[i].x, BgElement[i].y, 64, 64);
+            }
+            for (int i = 5; i < 50; i++)
+            {
+                Met.DrawImage(BgElement[i].bgElements, BgElement[i].x, BgElement[i].y, 1, 1);
+            }
+            for (int i = 50; i < 75; i++)
+            {
+                Met.DrawImage(BgElement[i].bgElements, BgElement[i].x, BgElement[i].y, 3, 3);
+            }
+            for (int i = 75; i < 100; i++)
+            {
+                Met.DrawImage(BgElement[i].bgElements, BgElement[i].x, BgElement[i].y, 5, 5);
             }
 
             for (int i = 0; i < enemy.Count; i++)
@@ -262,11 +288,31 @@ namespace Demo
                         enemy[i].X = RandomNumberGenerator.GenerateNumber(0, 500);
                         enemy[i].Y = -75;
                         Hang.EllenfelMeghalHangLejatszas();
+                        enemyKilled++;
+                    }
+
+                    if (enemyKilled == enemyCount)
+                    {
+                        levelCleared = true;
+                        Hit_Timer.Stop();
+                        Enemy_Move_Timer.Stop();
+                        BG_Timer.Stop();
+                        Player_Left_Timer.Stop();
+                        Player_Down_Timer.Stop();
+                        Player_Right_Timer.Stop();
+                        Player_Up_Timer.Stop();
+                        Ammo_Move_Timer.Stop();
+                        AttackSpeedDefault.Stop();
+                        AttackSpeed.Stop();
+                        Levels.CurrentLevel++;
+                        MessageBox.Show("Levels cleared!!!");
+                        Close();
+                        break;
                     }
                 }
 
 
-                if (Player.x >= enemy[i].X && Player.y >= enemy[i].Y && Player.x < enemy[i].X + 32 && Player.y < enemy[i].Y + 32)
+                if ((Player.x >= enemy[i].X && Player.y+32 >= enemy[i].Y && Player.x  <= enemy[i].X + 32 && Player.y+32 <= enemy[i].Y + 40) || (Player.x + 32 >= enemy[i].X && Player.y+32 >= enemy[i].Y && Player.x + 32 <= enemy[i].X + 32 && Player.y+32 <= enemy[i].Y + 40) || (Player.x+32 >= enemy[i].X && Player.y >= enemy[i].Y && Player.x+32 <= enemy[i].X + 32 && Player.y <= enemy[i].Y + 40) || (Player.x >= enemy[i].X && Player.y >= enemy[i].Y && Player.x <= enemy[i].X + 32 && Player.y <= enemy[i].Y + 40))
                 {
                     enemy[i].X = RandomNumberGenerator.GenerateNumber(0, 500);
                     enemy[i].Y = -30;
@@ -274,8 +320,16 @@ namespace Demo
                     if (Player.Ship.Hp == 0)
                     {
                         Hang.JatekosMeghalHangLejatszas();
+                        Player.x = 300;
+                        Player.y = 500;
+                        Player.Ship.Hp = 3;
                         Close();
                     }
+                }
+
+                if (levelCleared)
+                {
+                    break;
                 }
             }
         }
@@ -299,7 +353,7 @@ namespace Demo
             foreach (Ammo ammoToRemove in ammokToRemove)
             {
                 bullet.Remove(ammoToRemove);
-            } 
+            }
             this.Invalidate();
         }
 
@@ -323,11 +377,10 @@ namespace Demo
             AttackSpeed.Interval = 500;
             Ammo basd = new Ammo();
             basd.x = Player.x + 29;
-            basd.y = Player.y +10;
+            basd.y = Player.y + 10;
             bullet.Add(basd);
             Hang.LovoHangLejatszas();
             this.Invalidate();
-
         }
     }
 }

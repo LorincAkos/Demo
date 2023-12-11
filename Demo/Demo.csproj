@@ -112,6 +112,9 @@
     <None Update="Images\SpaceShipStand.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Images\Star.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Images\StartButton.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
