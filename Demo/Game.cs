@@ -16,7 +16,7 @@ namespace Demo
         List<BackgroundElements> BgElement;
         List<Enemy> enemy;
         List<Ammo> bullet;
-
+        Sounds Hang;
         public Game()
         {
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace Demo
             enemy = new List<Enemy>();
             BgElement = new List<BackgroundElements>();
             bullet = new();
+            Hang = new Sounds();
 
             AmmoGeneration();
             Spawn();
@@ -44,6 +45,7 @@ namespace Demo
             {
                 ImageAnimator.Animate(enemy[i].enemy, this.Animator);
             }
+            Hang.JatekHangLejatszas();
         }
 
         private void AmmoGeneration()
@@ -259,6 +261,7 @@ namespace Demo
                         bullet[j].y = -200;
                         enemy[i].X = RandomNumberGenerator.GenerateNumber(0, 500);
                         enemy[i].Y = -75;
+                        Hang.EllenfelMeghalHangLejatszas();
                     }
                 }
 
@@ -270,6 +273,7 @@ namespace Demo
                     Player.Ship.Hp -= 1;
                     if (Player.Ship.Hp == 0)
                     {
+                        Hang.JatekosMeghalHangLejatszas();
                         Close();
                     }
                 }
@@ -321,6 +325,7 @@ namespace Demo
             basd.x = Player.x + 29;
             basd.y = Player.y +10;
             bullet.Add(basd);
+            Hang.LovoHangLejatszas();
             this.Invalidate();
 
         }
