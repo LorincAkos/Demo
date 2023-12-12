@@ -109,6 +109,9 @@
     <None Update="Images\FallingMeteor.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Images\Gear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Images\Inventory.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

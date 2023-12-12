@@ -11,6 +11,7 @@ namespace Demo
         Image ExitImg;
         Image ShopButton;
         Image BaseButton;
+        public Image OptionButton;
 
 
 
@@ -25,6 +26,8 @@ namespace Demo
             ExitImg = Image.FromFile("Images\\ExitButton.png");
             ShopButton = Image.FromFile("Images\\ShopButton.png");
             BaseButton = Image.FromFile("Images\\BaseButton.png");
+            OptionButton = Image.FromFile("Images\\Gear.png");
+            
 
             ImageAnimator.Animate(SrtImg, this.Animator);
 
@@ -39,12 +42,14 @@ namespace Demo
             Graphics Exit = e.Graphics;
             Graphics ShopBut = e.Graphics;
             Graphics BaseBut = e.Graphics;
+            Graphics OptionBut = e.Graphics;
 
             BaseBut.DrawImage(BaseButton, 150, 444, 32, 32);
             Tit.DrawImage(Title, 150, 150, 256, 128);
             ShopBut.DrawImage(ShopButton, 100, 300, 128, 128);
             Start.DrawImage(SrtImg, 160, 200, 256, 256);
             Exit.DrawImage(ExitImg, 170, 320, 256, 256);
+            OptionBut.DrawImage(OptionButton, 200,280, 200, 200);
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)

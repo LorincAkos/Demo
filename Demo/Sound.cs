@@ -4,11 +4,11 @@ using WMPLib;
 
 namespace hangcucc
 {
-    public partial class HANGXD : Form
+    public partial class Sound : Form
     {
         private HangKezelo hangKezelo;
 
-        public HANGXD()
+        public Sound()
         {
             InitializeComponent();
             hangKezelo = new HangKezelo();

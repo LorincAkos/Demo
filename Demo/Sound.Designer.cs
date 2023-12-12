@@ -1,6 +1,6 @@
 ﻿namespace hangcucc
 {
-    partial class HANGXD
+    partial class Sound
     {
         /// <summary>
         ///  Required designer variable.
