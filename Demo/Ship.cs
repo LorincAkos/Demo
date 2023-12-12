@@ -26,5 +26,26 @@ namespace Demo
             Speed = speed;
         }
 
+        public void ChangeShip(string path)
+        {
+            switch (path)
+            {
+                case "Images\\SpaceShipStand.gif":
+                    Player.Ship.Id = (EnumContainer.ShipType)0;
+                    break;
+                case "Images\\Ship2.png":
+                    Player.Ship.Id = (EnumContainer.ShipType)1;
+                    break;
+                case "Images\\Ship3.png":
+                    Player.Ship.Id = (EnumContainer.ShipType)2;
+                    break;
+                case "Images\\Ship4.png":
+                    Player.Ship.Id = (EnumContainer.ShipType)3;
+                    break;
+                default: 
+                    break;
+            }
+        }
+
     }
 }

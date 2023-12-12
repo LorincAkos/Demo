@@ -21,6 +21,7 @@ namespace Demo
             enemyDieMedia = new WindowsMediaPlayer();
             playerDieMedia = new WindowsMediaPlayer();
 
+            gameMedia.settings.autoStart = false;
             gameMedia.URL = "songs\\GameSongs.mp3";
 
             shootMedia.settings.autoStart = false;

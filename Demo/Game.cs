@@ -39,7 +39,7 @@ namespace Demo
             Spawn(enemyImage);
             GenerateBG(bgElementImage);
             BackColor = background;
-            sound.GameMusic();
+            //sound.GameMusic();
             GameStart();
         }
 
@@ -64,7 +64,7 @@ namespace Demo
 
             for (int i = 0; i < 1; i++)
             {
-                Ammo b = new();
+                Ammo b = new(Player.Weapon.bulletImage);
                 bullet.Add(b);
             }
         }
@@ -131,7 +131,7 @@ namespace Demo
 
             for (int i = 0; i < bullet.Count; i++)
             {
-                Am.DrawImage(Ammo.bullett, bullet[i].x, bullet[i].y, 8, 8);
+                Am.DrawImage(bullet[0].bullett, bullet[i].x, bullet[i].y, 8, 8);
             }
             if (Player.Ship.SkinType == 0)
             {
@@ -370,7 +370,7 @@ namespace Demo
         private void AttackSpeed_Tick(object sender, EventArgs e)
         {
             AttackSpeed.Interval = 500;
-            Ammo basd = new Ammo();
+            Ammo basd = new Ammo(Player.Weapon.bulletImage);
             basd.x = Player.x + 29;
             basd.y = Player.y + 10;
             bullet.Add(basd);

@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using Demo;
+using System.Runtime.CompilerServices;
 
 namespace SoftwaretechInventory
 {
@@ -33,6 +34,7 @@ namespace SoftwaretechInventory
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
+            shipbodyEquiped = new PictureBox();
             playerLevelProgress = new ProgressBar();
             playerLevelDisplay = new Label();
             weaponEquiped = new PictureBox();
@@ -46,7 +48,6 @@ namespace SoftwaretechInventory
             shipbody1 = new PictureBox();
             shipbody2 = new PictureBox();
             shipbody3 = new PictureBox();
-            shipbodyEquiped = new PictureBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -61,6 +62,7 @@ namespace SoftwaretechInventory
             damageLabel = new Label();
             healthLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)shipbodyEquiped).BeginInit();
             ((System.ComponentModel.ISupportInitialize)weaponEquiped).BeginInit();
             ((System.ComponentModel.ISupportInitialize)weapon1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)weapon2).BeginInit();
@@ -72,7 +74,6 @@ namespace SoftwaretechInventory
             ((System.ComponentModel.ISupportInitialize)shipbody1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)shipbody2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)shipbody3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)shipbodyEquiped).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -82,8 +83,21 @@ namespace SoftwaretechInventory
             pictureBox1.Location = new Point(223, 107);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(148, 243);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Image = Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(Player.Ship.Id)]);
+            // 
+            // shipbodyEquiped
+            // 
+            shipbodyEquiped.BackColor = SystemColors.AppWorkspace;
+            shipbodyEquiped.ImageLocation = "Images\\SpaceShipStand.gif";
+            shipbodyEquiped.Location = new Point(172, 203);
+            shipbodyEquiped.Name = "shipbodyEquiped";
+            shipbodyEquiped.Size = new Size(40, 40);
+            shipbodyEquiped.SizeMode = PictureBoxSizeMode.StretchImage;
+            shipbodyEquiped.TabIndex = 15;
+            shipbodyEquiped.TabStop = false;
             // 
             // playerLevelProgress
             // 
@@ -107,6 +121,7 @@ namespace SoftwaretechInventory
             // weaponEquiped
             // 
             weaponEquiped.BackColor = SystemColors.AppWorkspace;
+            weaponEquiped.ImageLocation = "Images\\Weapon1.png";
             weaponEquiped.Location = new Point(386, 94);
             weaponEquiped.Name = "weaponEquiped";
             weaponEquiped.Size = new Size(40, 40);
@@ -117,6 +132,7 @@ namespace SoftwaretechInventory
             // weapon1
             // 
             weapon1.BackColor = SystemColors.AppWorkspace;
+            weapon1.ImageLocation = "Images\\Weapon2.png";
             weapon1.Location = new Point(443, 94);
             weapon1.Name = "weapon1";
             weapon1.Size = new Size(40, 40);
@@ -128,6 +144,7 @@ namespace SoftwaretechInventory
             // weapon2
             // 
             weapon2.BackColor = SystemColors.AppWorkspace;
+            weapon2.ImageLocation = "Images\\Weapon3.png";
             weapon2.Location = new Point(489, 94);
             weapon2.Name = "weapon2";
             weapon2.Size = new Size(40, 40);
@@ -139,6 +156,7 @@ namespace SoftwaretechInventory
             // weapon3
             // 
             weapon3.BackColor = SystemColors.AppWorkspace;
+            weapon3.ImageLocation = "Images\\Weapon4.png";
             weapon3.Location = new Point(535, 94);
             weapon3.Name = "weapon3";
             weapon3.Size = new Size(40, 40);
@@ -153,71 +171,80 @@ namespace SoftwaretechInventory
             engine3.Location = new Point(535, 279);
             engine3.Name = "engine3";
             engine3.Size = new Size(40, 40);
+            engine3.SizeMode = PictureBoxSizeMode.StretchImage;
             engine3.TabIndex = 14;
             engine3.TabStop = false;
             // 
             // engine2
             // 
             engine2.BackColor = SystemColors.AppWorkspace;
+            engine2.ImageLocation = "Images\\engine2.png";
             engine2.Location = new Point(489, 279);
             engine2.Name = "engine2";
             engine2.Size = new Size(40, 40);
+            engine2.SizeMode = PictureBoxSizeMode.StretchImage;
             engine2.TabIndex = 13;
             engine2.TabStop = false;
+            engine2.Click += engine_Click;
             // 
             // engine1
             // 
             engine1.BackColor = SystemColors.AppWorkspace;
+            engine1.ImageLocation = "Images\\engine1.png";
             engine1.Location = new Point(443, 279);
             engine1.Name = "engine1";
             engine1.Size = new Size(40, 40);
+            engine1.SizeMode = PictureBoxSizeMode.StretchImage;
             engine1.TabIndex = 12;
             engine1.TabStop = false;
+            engine1.Click += engine_Click;
             // 
             // engineEquiped
             // 
             engineEquiped.BackColor = SystemColors.AppWorkspace;
+            engineEquiped.ImageLocation = "Images\\engine1.png";
             engineEquiped.Location = new Point(386, 279);
             engineEquiped.Name = "engineEquiped";
             engineEquiped.Size = new Size(40, 40);
+            engineEquiped.SizeMode = PictureBoxSizeMode.StretchImage;
             engineEquiped.TabIndex = 11;
             engineEquiped.TabStop = false;
             // 
             // shipbody1
             // 
             shipbody1.BackColor = SystemColors.AppWorkspace;
+            shipbody1.ImageLocation = "Images\\Ship2.png";
             shipbody1.Location = new Point(116, 203);
             shipbody1.Name = "shipbody1";
             shipbody1.Size = new Size(40, 40);
+            shipbody1.SizeMode = PictureBoxSizeMode.StretchImage;
             shipbody1.TabIndex = 18;
             shipbody1.TabStop = false;
+            shipbody1.Click += ship_Click;
             // 
             // shipbody2
             // 
             shipbody2.BackColor = SystemColors.AppWorkspace;
+            shipbody2.ImageLocation = "Images\\Ship3.png";
             shipbody2.Location = new Point(70, 203);
             shipbody2.Name = "shipbody2";
             shipbody2.Size = new Size(40, 40);
+            shipbody2.SizeMode = PictureBoxSizeMode.StretchImage;
             shipbody2.TabIndex = 17;
             shipbody2.TabStop = false;
+            shipbody2.Click += ship_Click;
             // 
             // shipbody3
             // 
             shipbody3.BackColor = SystemColors.AppWorkspace;
+            shipbody3.ImageLocation = "Images\\Ship4.png";
             shipbody3.Location = new Point(24, 203);
             shipbody3.Name = "shipbody3";
             shipbody3.Size = new Size(40, 40);
+            shipbody3.SizeMode = PictureBoxSizeMode.StretchImage;
             shipbody3.TabIndex = 16;
             shipbody3.TabStop = false;
-            // 
-            // shipbodyEquiped
-            // 
-            shipbodyEquiped.BackColor = SystemColors.AppWorkspace;
-            shipbodyEquiped.Location = new Point(172, 203);
-            shipbodyEquiped.Name = "shipbodyEquiped";
-            shipbodyEquiped.Size = new Size(40, 40);
-            shipbodyEquiped.TabIndex = 15;
-            shipbodyEquiped.TabStop = false;
+            shipbody3.Click += ship_Click;
             // 
             // label1
             // 
@@ -373,6 +400,7 @@ namespace SoftwaretechInventory
             Name = "InventoryForm";
             Text = "Inventory";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)shipbodyEquiped).EndInit();
             ((System.ComponentModel.ISupportInitialize)weaponEquiped).EndInit();
             ((System.ComponentModel.ISupportInitialize)weapon1).EndInit();
             ((System.ComponentModel.ISupportInitialize)weapon2).EndInit();
@@ -384,7 +412,6 @@ namespace SoftwaretechInventory
             ((System.ComponentModel.ISupportInitialize)shipbody1).EndInit();
             ((System.ComponentModel.ISupportInitialize)shipbody2).EndInit();
             ((System.ComponentModel.ISupportInitialize)shipbody3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)shipbodyEquiped).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
