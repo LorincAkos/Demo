@@ -17,7 +17,7 @@ namespace Demo
         List<BackgroundElements> BgElement;
         List<Enemy> enemy;
         List<Ammo> bullet;
-        Sounds Hang;
+        Sounds sound;
         int enemyCount;
         int enemyKilled;
         bool levelCleared;
@@ -29,7 +29,7 @@ namespace Demo
             enemy = new List<Enemy>();
             BgElement = new List<BackgroundElements>();
             bullet = new();
-            Hang = new Sounds();
+            sound = new Sounds();
 
             Levels.GetLevelInfo(Levels.CurrentLevel, out int enemyCount_, out Image enemyImage, out Color background, out Image bgElementImage);
             enemyCount = enemyCount_;
@@ -39,6 +39,7 @@ namespace Demo
             Spawn(enemyImage);
             GenerateBG(bgElementImage);
             BackColor = background;
+            sound.GameMusic();
             GameStart();
         }
 
@@ -55,7 +56,7 @@ namespace Demo
             {
                 ImageAnimator.Animate(enemy[i].enemy, this.Animator);
             }
-            Hang.JatekHangLejatszas();
+            
         }
 
         private void AmmoGeneration()
@@ -287,23 +288,14 @@ namespace Demo
                         bullet[j].y = -200;
                         enemy[i].X = RandomNumberGenerator.GenerateNumber(0, 500);
                         enemy[i].Y = -75;
-                        Hang.EllenfelMeghalHangLejatszas();
+                        sound.EnemyDieSound();
                         enemyKilled++;
                     }
 
                     if (enemyKilled == enemyCount)
                     {
                         levelCleared = true;
-                        Hit_Timer.Stop();
-                        Enemy_Move_Timer.Stop();
-                        BG_Timer.Stop();
-                        Player_Left_Timer.Stop();
-                        Player_Down_Timer.Stop();
-                        Player_Right_Timer.Stop();
-                        Player_Up_Timer.Stop();
-                        Ammo_Move_Timer.Stop();
-                        AttackSpeedDefault.Stop();
-                        AttackSpeed.Stop();
+                        StopTimer();
                         Levels.CurrentLevel++;
                         MessageBox.Show("Levels cleared!!!");
                         Close();
@@ -319,10 +311,13 @@ namespace Demo
                     Player.Ship.Hp -= 1;
                     if (Player.Ship.Hp == 0)
                     {
-                        Hang.JatekosMeghalHangLejatszas();
+                        sound.PlayerDieSound();
                         Player.x = 300;
                         Player.y = 500;
                         Player.Ship.Hp = 3;
+                        sound.GameEnd();
+                        StopTimer();
+                        MessageBox.Show("Game over!!!");
                         Close();
                     }
                 }
@@ -379,8 +374,22 @@ namespace Demo
             basd.x = Player.x + 29;
             basd.y = Player.y + 10;
             bullet.Add(basd);
-            Hang.LovoHangLejatszas();
+            sound.ShootSound();
             this.Invalidate();
+        }
+
+        private void StopTimer()
+        {
+            Hit_Timer.Stop();
+            Enemy_Move_Timer.Stop();
+            BG_Timer.Stop();
+            Player_Left_Timer.Stop();
+            Player_Down_Timer.Stop();
+            Player_Right_Timer.Stop();
+            Player_Up_Timer.Stop();
+            Ammo_Move_Timer.Stop();
+            AttackSpeedDefault.Stop();
+            AttackSpeed.Stop();
         }
     }
 }

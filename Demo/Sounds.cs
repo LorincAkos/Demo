@@ -21,35 +21,40 @@ namespace Demo
             enemyDieMedia = new WindowsMediaPlayer();
             playerDieMedia = new WindowsMediaPlayer();
 
-            gameMedia.URL = "D:\\visual repos\\ciganybunozes\\Demo\\songs\\GameSongs.mp3";
+            gameMedia.URL = "songs\\GameSongs.mp3";
 
             shootMedia.settings.autoStart = false;
-            shootMedia.URL = "D:\\visual repos\\ciganybunozes\\Demo\\songs\\ShootSongs.mp3";
+            shootMedia.URL = "songs\\ShootSongs.mp3";
 
             enemyDieMedia.settings.autoStart= false;
-            enemyDieMedia.URL = "D:\\visual repos\\ciganybunozes\\Demo\\songs\\EnemyDie.mp3";
+            enemyDieMedia.URL = "songs\\EnemyDie.mp3";
 
             playerDieMedia.settings.autoStart = false;
-            playerDieMedia.URL = "D:\\visual repos\\ciganybunozes\\Demo\\songs\\PlayerDie.mp3";
+            playerDieMedia.URL = "songs\\PlayerDie.mp3";
 
         }
-        public void JatekHangLejatszas()
+        public void GameMusic()
         {
             gameMedia.controls.play();
             gameMedia.settings.setMode("loop", true);
         }
 
-        public void LovoHangLejatszas()
+        public void GameEnd()
+        {
+            gameMedia.controls.stop();
+        }
+
+        public void ShootSound()
         {
             shootMedia.controls.play();
         }
 
-        public void EllenfelMeghalHangLejatszas()
+        public void EnemyDieSound()
         {
             enemyDieMedia.controls.play();
         }
 
-        public void JatekosMeghalHangLejatszas()
+        public void PlayerDieSound()
         {
             playerDieMedia.controls.play();
         }
