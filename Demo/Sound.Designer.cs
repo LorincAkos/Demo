@@ -1,4 +1,4 @@
-﻿namespace hangcucc
+﻿namespace Demo
 {
     partial class Sound
     {
@@ -46,7 +46,7 @@
             volumeTrackBar.Location = new Point(250, 53);
             volumeTrackBar.Maximum = 100;
             volumeTrackBar.Name = "volumeTrackBar";
-            volumeTrackBar.Size = new Size(380, 45);
+            volumeTrackBar.Size = new Size(184, 45);
             volumeTrackBar.TabIndex = 0;
             volumeTrackBar.TickFrequency = 10;
             volumeTrackBar.Value = 50;
@@ -58,7 +58,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(2, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(186, 447);
+            panel1.Size = new Size(186, 561);
             panel1.TabIndex = 1;
             // 
             // label1
@@ -75,7 +75,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Mongolian Baiti", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(419, 34);
+            label2.Location = new Point(299, 34);
             label2.Name = "label2";
             label2.Size = new Size(87, 16);
             label2.TabIndex = 2;
@@ -85,7 +85,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Mongolian Baiti", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(392, 136);
+            label3.Location = new Point(276, 136);
             label3.Name = "label3";
             label3.Size = new Size(139, 16);
             label3.TabIndex = 4;
@@ -97,24 +97,26 @@
             volumeTrackBar2.Location = new Point(250, 155);
             volumeTrackBar2.Maximum = 100;
             volumeTrackBar2.Name = "volumeTrackBar2";
-            volumeTrackBar2.Size = new Size(380, 45);
+            volumeTrackBar2.Size = new Size(184, 45);
             volumeTrackBar2.TabIndex = 3;
             volumeTrackBar2.TickFrequency = 10;
             volumeTrackBar2.Value = 50;
             volumeTrackBar2.Scroll += volumeTrackBar2_Scroll;
             // 
-            // HANGXD
+            // Sound
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDarkDark;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(584, 561);
             Controls.Add(label3);
             Controls.Add(volumeTrackBar2);
             Controls.Add(label2);
             Controls.Add(panel1);
             Controls.Add(volumeTrackBar);
-            Name = "HANGXD";
+            MaximumSize = new Size(600, 600);
+            MinimumSize = new Size(600, 600);
+            Name = "Sound";
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)volumeTrackBar).EndInit();

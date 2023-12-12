@@ -49,7 +49,7 @@ namespace Demo
             ShopBut.DrawImage(ShopButton, 100, 300, 128, 128);
             Start.DrawImage(SrtImg, 160, 200, 256, 256);
             Exit.DrawImage(ExitImg, 170, 320, 256, 256);
-            OptionBut.DrawImage(OptionButton, 200,280, 200, 200);
+            OptionBut.DrawImage(OptionButton, 400,325, 64, 64);
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
@@ -81,6 +81,13 @@ namespace Demo
                 b.FormBorderStyle = FormBorderStyle.None;
                 this.Controls.Add(b);
                 b.Show();
+            }
+            else if (mouse.X >= 400 && mouse.Y >= 325 && mouse.X < 400 + 64 && mouse.Y < 325+ 64)
+            {
+                Sound soundsSettigs = new Sound() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                soundsSettigs.FormBorderStyle = FormBorderStyle.None;
+                this.Controls.Add(soundsSettigs);
+                soundsSettigs.Show();
             }
 
         }

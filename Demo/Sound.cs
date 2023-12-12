@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using WMPLib;
 
-namespace hangcucc
+namespace Demo
 {
     public partial class Sound : Form
     {

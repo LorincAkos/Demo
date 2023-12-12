@@ -39,7 +39,7 @@ namespace Demo
             Spawn(enemyImage);
             GenerateBG(bgElementImage);
             BackColor = background;
-            //sound.GameMusic();
+            sound.GameMusic();
             GameStart();
         }
 
@@ -297,6 +297,7 @@ namespace Demo
                         levelCleared = true;
                         StopTimer();
                         Levels.CurrentLevel++;
+                        sound.GameEnd();
                         MessageBox.Show("Levels cleared!!!");
                         Close();
                         break;
