@@ -91,6 +91,9 @@
     <None Update="Images\E1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Images\Enemy2.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Images\engine1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -85,7 +85,7 @@ namespace Demo
                     enemyCount = 100;
                     background = Color.Black;
                     bgElement = Image.FromFile(ImageContainer.BackgroundElementImage[0]);
-                    enemyImage = Image.FromFile(ImageContainer.DropItemImage[0]);
+                    enemyImage = Image.FromFile(ImageContainer.DropItemImage[1]);
                     break;
                     
             }

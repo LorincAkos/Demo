@@ -35,6 +35,7 @@ namespace Demo
         public static List<string> EnemyImage = new()
         {
             "Images\\E1.gif",
+            "Images\\Enemy2.gif",
         };
         public static List<string> BossImage = new() { };
         public static List<string> DropItemImage = new()
