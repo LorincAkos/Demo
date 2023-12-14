@@ -69,6 +69,7 @@ namespace Demo
         private void button1_Click(object sender, EventArgs e)
         {
             song.GameEnd();
+            song.sfxTestStop();
             Close();
         }
 
