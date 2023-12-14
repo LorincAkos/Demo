@@ -375,6 +375,7 @@ namespace Demo
             basd.x = Player.x + 29;
             basd.y = Player.y + 10;
             bullet.Add(basd);
+            sound.ShootSoundstop();
             sound.ShootSound();
             this.Invalidate();
         }

@@ -29,7 +29,7 @@ namespace Demo
                     break;
                 case 2:
                     enemyCount = 15;
-                    background = Color.Chocolate;
+                    background = Color.LightBlue;
                     bgElement = Image.FromFile(ImageContainer.BackgroundElementImage[1]);
                     enemyImage = Image.FromFile(ImageContainer.DropItemImage[0]);
                     break;
