@@ -4,6 +4,7 @@ namespace SoftwaretechInventory
 {
     public partial class InventoryForm : Form
     {
+
         public InventoryForm()
         {
             InitializeComponent();

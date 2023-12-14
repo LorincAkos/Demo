@@ -36,10 +36,10 @@
             button1 = new Button();
             Player = new Label();
             pages = new TabControl();
-            Kutya = new TabPage();
-            Cica = new TabPage();
-            Valami = new TabPage();
-            Gatya = new TabPage();
+            Weapons = new TabPage();
+            Ships = new TabPage();
+            Engines = new TabPage();
+            Chests = new TabPage();
             panel1.SuspendLayout();
             pages.SuspendLayout();
             SuspendLayout();
@@ -55,9 +55,9 @@
             panel1.Controls.Add(Player);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Margin = new Padding(5, 4, 5, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(197, 561);
+            panel1.Size = new Size(225, 737);
             panel1.TabIndex = 1;
             // 
             // button5
@@ -72,10 +72,10 @@
             button5.FlatStyle = FlatStyle.Popup;
             button5.Font = new Font("Mongolian Baiti", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             button5.ForeColor = SystemColors.ControlText;
-            button5.Location = new Point(28, 497);
-            button5.Margin = new Padding(4, 3, 4, 3);
+            button5.Location = new Point(32, 426);
+            button5.Margin = new Padding(5, 4, 5, 4);
             button5.Name = "button5";
-            button5.Size = new Size(112, 40);
+            button5.Size = new Size(128, 53);
             button5.TabIndex = 7;
             button5.Text = "Exit";
             button5.UseVisualStyleBackColor = false;
@@ -93,12 +93,12 @@
             button3.FlatStyle = FlatStyle.Popup;
             button3.Font = new Font("Mongolian Baiti", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             button3.ForeColor = SystemColors.ControlText;
-            button3.Location = new Point(28, 218);
-            button3.Margin = new Padding(4, 3, 4, 3);
+            button3.Location = new Point(32, 291);
+            button3.Margin = new Padding(5, 4, 5, 4);
             button3.Name = "button3";
-            button3.Size = new Size(112, 40);
+            button3.Size = new Size(128, 53);
             button3.TabIndex = 5;
-            button3.Text = "Gatya";
+            button3.Text = "Chests";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
@@ -114,12 +114,12 @@
             button4.FlatStyle = FlatStyle.Popup;
             button4.Font = new Font("Mongolian Baiti", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             button4.ForeColor = SystemColors.ControlText;
-            button4.Location = new Point(28, 171);
-            button4.Margin = new Padding(4, 3, 4, 3);
+            button4.Location = new Point(32, 228);
+            button4.Margin = new Padding(5, 4, 5, 4);
             button4.Name = "button4";
-            button4.Size = new Size(112, 40);
+            button4.Size = new Size(128, 53);
             button4.TabIndex = 4;
-            button4.Text = "Valami";
+            button4.Text = "Engines";
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
@@ -135,12 +135,12 @@
             button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Mongolian Baiti", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = SystemColors.ControlText;
-            button2.Location = new Point(28, 123);
-            button2.Margin = new Padding(4, 3, 4, 3);
+            button2.Location = new Point(32, 164);
+            button2.Margin = new Padding(5, 4, 5, 4);
             button2.Name = "button2";
-            button2.Size = new Size(112, 40);
+            button2.Size = new Size(128, 53);
             button2.TabIndex = 3;
-            button2.Text = "Cica";
+            button2.Text = "Ships";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
@@ -156,12 +156,12 @@
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Mongolian Baiti", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(28, 76);
-            button1.Margin = new Padding(4, 3, 4, 3);
+            button1.Location = new Point(32, 101);
+            button1.Margin = new Padding(5, 4, 5, 4);
             button1.Name = "button1";
-            button1.Size = new Size(112, 40);
+            button1.Size = new Size(128, 53);
             button1.TabIndex = 2;
-            button1.Text = "Kutya";
+            button1.Text = "Weapons";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -169,81 +169,81 @@
             // 
             Player.AutoSize = true;
             Player.Font = new Font("Mongolian Baiti", 17F, FontStyle.Bold, GraphicsUnit.Point);
-            Player.Location = new Point(14, 10);
-            Player.Margin = new Padding(4, 0, 4, 0);
+            Player.Location = new Point(16, 13);
+            Player.Margin = new Padding(5, 0, 5, 0);
             Player.Name = "Player";
-            Player.Size = new Size(135, 24);
+            Player.Size = new Size(78, 30);
             Player.TabIndex = 1;
-            Player.Text = "Player Shop";
+            Player.Text = "Shop";
             // 
             // pages
             // 
             pages.Alignment = TabAlignment.Bottom;
-            pages.Controls.Add(Kutya);
-            pages.Controls.Add(Cica);
-            pages.Controls.Add(Valami);
-            pages.Controls.Add(Gatya);
-            pages.Location = new Point(191, 0);
-            pages.Margin = new Padding(4, 3, 4, 3);
+            pages.Controls.Add(Weapons);
+            pages.Controls.Add(Ships);
+            pages.Controls.Add(Engines);
+            pages.Controls.Add(Chests);
+            pages.Location = new Point(218, 0);
+            pages.Margin = new Padding(5, 4, 5, 4);
             pages.Name = "pages";
             pages.SelectedIndex = 0;
-            pages.Size = new Size(392, 561);
+            pages.Size = new Size(448, 748);
             pages.TabIndex = 2;
             // 
-            // Kutya
+            // Weapons
             // 
-            Kutya.Location = new Point(4, 4);
-            Kutya.Margin = new Padding(4, 3, 4, 3);
-            Kutya.Name = "Kutya";
-            Kutya.Padding = new Padding(4, 3, 4, 3);
-            Kutya.Size = new Size(384, 533);
-            Kutya.TabIndex = 0;
-            Kutya.Text = "Kutya";
-            Kutya.UseVisualStyleBackColor = true;
+            Weapons.Location = new Point(4, 4);
+            Weapons.Margin = new Padding(5, 4, 5, 4);
+            Weapons.Name = "Weapons";
+            Weapons.Padding = new Padding(5, 4, 5, 4);
+            Weapons.Size = new Size(440, 715);
+            Weapons.TabIndex = 0;
+            Weapons.Text = "Weapons";
+            Weapons.UseVisualStyleBackColor = true;
             // 
-            // Cica
+            // Ships
             // 
-            Cica.Location = new Point(4, 4);
-            Cica.Margin = new Padding(4, 3, 4, 3);
-            Cica.Name = "Cica";
-            Cica.Padding = new Padding(4, 3, 4, 3);
-            Cica.Size = new Size(478, 619);
-            Cica.TabIndex = 1;
-            Cica.Text = "Cica";
-            Cica.UseVisualStyleBackColor = true;
+            Ships.Location = new Point(4, 4);
+            Ships.Margin = new Padding(5, 4, 5, 4);
+            Ships.Name = "Ships";
+            Ships.Padding = new Padding(5, 4, 5, 4);
+            Ships.Size = new Size(440, 715);
+            Ships.TabIndex = 1;
+            Ships.Text = "Ships";
+            Ships.UseVisualStyleBackColor = true;
             // 
-            // Valami
+            // Engines
             // 
-            Valami.Location = new Point(4, 4);
-            Valami.Margin = new Padding(4, 3, 4, 3);
-            Valami.Name = "Valami";
-            Valami.Padding = new Padding(4, 3, 4, 3);
-            Valami.Size = new Size(478, 619);
-            Valami.TabIndex = 2;
-            Valami.Text = "Valami";
-            Valami.UseVisualStyleBackColor = true;
+            Engines.Location = new Point(4, 4);
+            Engines.Margin = new Padding(5, 4, 5, 4);
+            Engines.Name = "Engines";
+            Engines.Padding = new Padding(5, 4, 5, 4);
+            Engines.Size = new Size(440, 715);
+            Engines.TabIndex = 2;
+            Engines.Text = "Engines";
+            Engines.UseVisualStyleBackColor = true;
             // 
-            // Gatya
+            // Chests
             // 
-            Gatya.Location = new Point(4, 4);
-            Gatya.Margin = new Padding(4, 3, 4, 3);
-            Gatya.Name = "Gatya";
-            Gatya.Padding = new Padding(4, 3, 4, 3);
-            Gatya.Size = new Size(478, 619);
-            Gatya.TabIndex = 3;
-            Gatya.Text = "Gatya";
-            Gatya.UseVisualStyleBackColor = true;
+            Chests.Location = new Point(4, 4);
+            Chests.Margin = new Padding(5, 4, 5, 4);
+            Chests.Name = "Chests";
+            Chests.Padding = new Padding(5, 4, 5, 4);
+            Chests.Size = new Size(440, 715);
+            Chests.TabIndex = 3;
+            Chests.Text = "Chests";
+            Chests.UseVisualStyleBackColor = true;
             // 
             // Shop
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(584, 561);
+            ClientSize = new Size(665, 737);
             Controls.Add(pages);
             Controls.Add(panel1);
-            Margin = new Padding(4, 3, 4, 3);
-            MaximumSize = new Size(600, 600);
-            MinimumSize = new Size(600, 600);
+            Margin = new Padding(5, 4, 5, 4);
+            MaximumSize = new Size(683, 784);
+            MinimumSize = new Size(683, 784);
             Name = "Shop";
             Text = "Shop";
             Load += Shop_Load;
@@ -263,9 +263,9 @@
         private Button button1;
         private Label Player;
         private TabControl pages;
-        private TabPage Kutya;
-        private TabPage Cica;
-        private TabPage Valami;
-        private TabPage Gatya;
+        private TabPage Weapons;
+        private TabPage Ships;
+        private TabPage Engines;
+        private TabPage Chests;
     }
 }

@@ -48,8 +48,6 @@ namespace SoftwaretechInventory
             shipbody1 = new PictureBox();
             shipbody2 = new PictureBox();
             shipbody3 = new PictureBox();
-            label1 = new Label();
-            label2 = new Label();
             label3 = new Label();
             backButton = new Button();
             panel1 = new Panel();
@@ -80,30 +78,32 @@ namespace SoftwaretechInventory
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.GrayText;
-            pictureBox1.Location = new Point(223, 107);
+            pictureBox1.Location = new Point(300, 122);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(148, 243);
+            pictureBox1.Size = new Size(261, 324);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Image = Image.FromFile(ImageContainer.ShipImage[Convert.ToInt32(Player.Ship.Id)]);
             // 
             // shipbodyEquiped
             // 
             shipbodyEquiped.BackColor = SystemColors.AppWorkspace;
             shipbodyEquiped.ImageLocation = "Images\\SpaceShipStand.gif";
-            shipbodyEquiped.Location = new Point(172, 203);
+            shipbodyEquiped.Location = new Point(225, 101);
+            shipbodyEquiped.Margin = new Padding(3, 4, 3, 4);
             shipbodyEquiped.Name = "shipbodyEquiped";
-            shipbodyEquiped.Size = new Size(40, 40);
+            shipbodyEquiped.Size = new Size(46, 53);
             shipbodyEquiped.SizeMode = PictureBoxSizeMode.StretchImage;
             shipbodyEquiped.TabIndex = 15;
             shipbodyEquiped.TabStop = false;
             // 
             // playerLevelProgress
             // 
-            playerLevelProgress.Location = new Point(198, 42);
+            playerLevelProgress.Location = new Point(317, 65);
+            playerLevelProgress.Margin = new Padding(3, 4, 3, 4);
             playerLevelProgress.Name = "playerLevelProgress";
-            playerLevelProgress.Size = new Size(204, 14);
+            playerLevelProgress.Size = new Size(233, 19);
             playerLevelProgress.Style = ProgressBarStyle.Continuous;
             playerLevelProgress.TabIndex = 5;
             // 
@@ -112,9 +112,9 @@ namespace SoftwaretechInventory
             playerLevelDisplay.AutoSize = true;
             playerLevelDisplay.BackColor = SystemColors.WindowText;
             playerLevelDisplay.ForeColor = Color.FromArgb(0, 192, 0);
-            playerLevelDisplay.Location = new Point(289, 24);
+            playerLevelDisplay.Location = new Point(419, 27);
             playerLevelDisplay.Name = "playerLevelDisplay";
-            playerLevelDisplay.Size = new Size(27, 15);
+            playerLevelDisplay.Size = new Size(34, 20);
             playerLevelDisplay.TabIndex = 6;
             playerLevelDisplay.Text = "text";
             // 
@@ -122,9 +122,10 @@ namespace SoftwaretechInventory
             // 
             weaponEquiped.BackColor = SystemColors.AppWorkspace;
             weaponEquiped.ImageLocation = "Images\\Weapon1.png";
-            weaponEquiped.Location = new Point(386, 94);
+            weaponEquiped.Location = new Point(225, 162);
+            weaponEquiped.Margin = new Padding(3, 4, 3, 4);
             weaponEquiped.Name = "weaponEquiped";
-            weaponEquiped.Size = new Size(40, 40);
+            weaponEquiped.Size = new Size(46, 53);
             weaponEquiped.SizeMode = PictureBoxSizeMode.StretchImage;
             weaponEquiped.TabIndex = 7;
             weaponEquiped.TabStop = false;
@@ -133,9 +134,10 @@ namespace SoftwaretechInventory
             // 
             weapon1.BackColor = SystemColors.AppWorkspace;
             weapon1.ImageLocation = "Images\\Weapon2.png";
-            weapon1.Location = new Point(443, 94);
+            weapon1.Location = new Point(7, 162);
+            weapon1.Margin = new Padding(3, 4, 3, 4);
             weapon1.Name = "weapon1";
-            weapon1.Size = new Size(40, 40);
+            weapon1.Size = new Size(46, 53);
             weapon1.SizeMode = PictureBoxSizeMode.StretchImage;
             weapon1.TabIndex = 8;
             weapon1.TabStop = false;
@@ -145,9 +147,10 @@ namespace SoftwaretechInventory
             // 
             weapon2.BackColor = SystemColors.AppWorkspace;
             weapon2.ImageLocation = "Images\\Weapon3.png";
-            weapon2.Location = new Point(489, 94);
+            weapon2.Location = new Point(60, 162);
+            weapon2.Margin = new Padding(3, 4, 3, 4);
             weapon2.Name = "weapon2";
-            weapon2.Size = new Size(40, 40);
+            weapon2.Size = new Size(46, 53);
             weapon2.SizeMode = PictureBoxSizeMode.StretchImage;
             weapon2.TabIndex = 9;
             weapon2.TabStop = false;
@@ -157,9 +160,10 @@ namespace SoftwaretechInventory
             // 
             weapon3.BackColor = SystemColors.AppWorkspace;
             weapon3.ImageLocation = "Images\\Weapon4.png";
-            weapon3.Location = new Point(535, 94);
+            weapon3.Location = new Point(112, 162);
+            weapon3.Margin = new Padding(3, 4, 3, 4);
             weapon3.Name = "weapon3";
-            weapon3.Size = new Size(40, 40);
+            weapon3.Size = new Size(46, 53);
             weapon3.SizeMode = PictureBoxSizeMode.StretchImage;
             weapon3.TabIndex = 10;
             weapon3.TabStop = false;
@@ -168,9 +172,10 @@ namespace SoftwaretechInventory
             // engine3
             // 
             engine3.BackColor = SystemColors.AppWorkspace;
-            engine3.Location = new Point(535, 279);
+            engine3.Location = new Point(112, 223);
+            engine3.Margin = new Padding(3, 4, 3, 4);
             engine3.Name = "engine3";
-            engine3.Size = new Size(40, 40);
+            engine3.Size = new Size(46, 53);
             engine3.SizeMode = PictureBoxSizeMode.StretchImage;
             engine3.TabIndex = 14;
             engine3.TabStop = false;
@@ -179,9 +184,10 @@ namespace SoftwaretechInventory
             // 
             engine2.BackColor = SystemColors.AppWorkspace;
             engine2.ImageLocation = "Images\\engine2.png";
-            engine2.Location = new Point(489, 279);
+            engine2.Location = new Point(60, 223);
+            engine2.Margin = new Padding(3, 4, 3, 4);
             engine2.Name = "engine2";
-            engine2.Size = new Size(40, 40);
+            engine2.Size = new Size(46, 53);
             engine2.SizeMode = PictureBoxSizeMode.StretchImage;
             engine2.TabIndex = 13;
             engine2.TabStop = false;
@@ -191,9 +197,10 @@ namespace SoftwaretechInventory
             // 
             engine1.BackColor = SystemColors.AppWorkspace;
             engine1.ImageLocation = "Images\\engine1.png";
-            engine1.Location = new Point(443, 279);
+            engine1.Location = new Point(7, 223);
+            engine1.Margin = new Padding(3, 4, 3, 4);
             engine1.Name = "engine1";
-            engine1.Size = new Size(40, 40);
+            engine1.Size = new Size(46, 53);
             engine1.SizeMode = PictureBoxSizeMode.StretchImage;
             engine1.TabIndex = 12;
             engine1.TabStop = false;
@@ -203,9 +210,10 @@ namespace SoftwaretechInventory
             // 
             engineEquiped.BackColor = SystemColors.AppWorkspace;
             engineEquiped.ImageLocation = "Images\\engine1.png";
-            engineEquiped.Location = new Point(386, 279);
+            engineEquiped.Location = new Point(225, 223);
+            engineEquiped.Margin = new Padding(3, 4, 3, 4);
             engineEquiped.Name = "engineEquiped";
-            engineEquiped.Size = new Size(40, 40);
+            engineEquiped.Size = new Size(46, 53);
             engineEquiped.SizeMode = PictureBoxSizeMode.StretchImage;
             engineEquiped.TabIndex = 11;
             engineEquiped.TabStop = false;
@@ -214,9 +222,10 @@ namespace SoftwaretechInventory
             // 
             shipbody1.BackColor = SystemColors.AppWorkspace;
             shipbody1.ImageLocation = "Images\\Ship2.png";
-            shipbody1.Location = new Point(116, 203);
+            shipbody1.Location = new Point(112, 101);
+            shipbody1.Margin = new Padding(3, 4, 3, 4);
             shipbody1.Name = "shipbody1";
-            shipbody1.Size = new Size(40, 40);
+            shipbody1.Size = new Size(46, 53);
             shipbody1.SizeMode = PictureBoxSizeMode.StretchImage;
             shipbody1.TabIndex = 18;
             shipbody1.TabStop = false;
@@ -226,9 +235,10 @@ namespace SoftwaretechInventory
             // 
             shipbody2.BackColor = SystemColors.AppWorkspace;
             shipbody2.ImageLocation = "Images\\Ship3.png";
-            shipbody2.Location = new Point(70, 203);
+            shipbody2.Location = new Point(59, 101);
+            shipbody2.Margin = new Padding(3, 4, 3, 4);
             shipbody2.Name = "shipbody2";
-            shipbody2.Size = new Size(40, 40);
+            shipbody2.Size = new Size(46, 53);
             shipbody2.SizeMode = PictureBoxSizeMode.StretchImage;
             shipbody2.TabIndex = 17;
             shipbody2.TabStop = false;
@@ -238,50 +248,32 @@ namespace SoftwaretechInventory
             // 
             shipbody3.BackColor = SystemColors.AppWorkspace;
             shipbody3.ImageLocation = "Images\\Ship4.png";
-            shipbody3.Location = new Point(24, 203);
+            shipbody3.Location = new Point(6, 101);
+            shipbody3.Margin = new Padding(3, 4, 3, 4);
             shipbody3.Name = "shipbody3";
-            shipbody3.Size = new Size(40, 40);
+            shipbody3.Size = new Size(46, 53);
             shipbody3.SizeMode = PictureBoxSizeMode.StretchImage;
             shipbody3.TabIndex = 16;
             shipbody3.TabStop = false;
             shipbody3.Click += ship_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(382, 76);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 15);
-            label1.TabIndex = 19;
-            label1.Text = "Equiped";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(381, 261);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 15);
-            label2.TabIndex = 20;
-            label2.Text = "Equiped";
-            // 
             // label3
             // 
             label3.AutoSize = true;
             label3.ForeColor = SystemColors.Control;
-            label3.Location = new Point(167, 185);
+            label3.Location = new Point(219, 77);
             label3.Name = "label3";
-            label3.Size = new Size(50, 15);
+            label3.Size = new Size(64, 20);
             label3.TabIndex = 21;
             label3.Text = "Equiped";
             // 
             // backButton
             // 
             backButton.BackColor = SystemColors.MenuHighlight;
-            backButton.Location = new Point(12, 12);
+            backButton.Location = new Point(14, 16);
+            backButton.Margin = new Padding(3, 4, 3, 4);
             backButton.Name = "backButton";
-            backButton.Size = new Size(75, 23);
+            backButton.Size = new Size(86, 31);
             backButton.TabIndex = 22;
             backButton.Text = "Back";
             backButton.UseVisualStyleBackColor = false;
@@ -298,90 +290,89 @@ namespace SoftwaretechInventory
             panel1.Controls.Add(fireRateLabel);
             panel1.Controls.Add(damageLabel);
             panel1.Controls.Add(healthLabel);
-            panel1.Location = new Point(12, 389);
+            panel1.Location = new Point(12, 308);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(216, 160);
+            panel1.Size = new Size(247, 213);
             panel1.TabIndex = 23;
             // 
             // speedDisplay
             // 
             speedDisplay.AutoSize = true;
-            speedDisplay.Location = new Point(113, 110);
+            speedDisplay.Location = new Point(129, 147);
             speedDisplay.Name = "speedDisplay";
-            speedDisplay.Size = new Size(0, 15);
+            speedDisplay.Size = new Size(0, 20);
             speedDisplay.TabIndex = 7;
             // 
             // fireRateDisplay
             // 
             fireRateDisplay.AutoSize = true;
-            fireRateDisplay.Location = new Point(113, 80);
+            fireRateDisplay.Location = new Point(129, 107);
             fireRateDisplay.Name = "fireRateDisplay";
-            fireRateDisplay.Size = new Size(0, 15);
+            fireRateDisplay.Size = new Size(0, 20);
             fireRateDisplay.TabIndex = 6;
             // 
             // damageDisplay
             // 
             damageDisplay.AutoSize = true;
-            damageDisplay.Location = new Point(113, 50);
+            damageDisplay.Location = new Point(129, 67);
             damageDisplay.Name = "damageDisplay";
-            damageDisplay.Size = new Size(0, 15);
+            damageDisplay.Size = new Size(0, 20);
             damageDisplay.TabIndex = 5;
             // 
             // healtDisplay
             // 
             healtDisplay.AutoSize = true;
-            healtDisplay.Location = new Point(115, 20);
+            healtDisplay.Location = new Point(131, 27);
             healtDisplay.Name = "healtDisplay";
-            healtDisplay.Size = new Size(0, 15);
+            healtDisplay.Size = new Size(0, 20);
             healtDisplay.TabIndex = 4;
             // 
             // speedLabel
             // 
             speedLabel.AutoSize = true;
-            speedLabel.Location = new Point(29, 110);
+            speedLabel.Location = new Point(33, 147);
             speedLabel.Name = "speedLabel";
-            speedLabel.Size = new Size(39, 15);
+            speedLabel.Size = new Size(51, 20);
             speedLabel.TabIndex = 3;
             speedLabel.Text = "Speed";
             // 
             // fireRateLabel
             // 
             fireRateLabel.AutoSize = true;
-            fireRateLabel.Location = new Point(28, 80);
+            fireRateLabel.Location = new Point(32, 107);
             fireRateLabel.Name = "fireRateLabel";
-            fireRateLabel.Size = new Size(52, 15);
+            fireRateLabel.Size = new Size(67, 20);
             fireRateLabel.TabIndex = 2;
             fireRateLabel.Text = "Fire Rate";
             // 
             // damageLabel
             // 
             damageLabel.AutoSize = true;
-            damageLabel.Location = new Point(29, 50);
+            damageLabel.Location = new Point(33, 67);
             damageLabel.Name = "damageLabel";
-            damageLabel.Size = new Size(51, 15);
+            damageLabel.Size = new Size(66, 20);
             damageLabel.TabIndex = 1;
             damageLabel.Text = "Damage";
             // 
             // healthLabel
             // 
             healthLabel.AutoSize = true;
-            healthLabel.Location = new Point(29, 20);
+            healthLabel.Location = new Point(33, 27);
             healthLabel.Name = "healthLabel";
-            healthLabel.Size = new Size(42, 15);
+            healthLabel.Size = new Size(53, 20);
             healthLabel.TabIndex = 0;
             healthLabel.Text = "Health";
             // 
             // InventoryForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaptionText;
-            ClientSize = new Size(584, 561);
+            ClientSize = new Size(582, 553);
             Controls.Add(panel1);
             Controls.Add(backButton);
             Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(shipbody1);
             Controls.Add(shipbody2);
             Controls.Add(shipbody3);
@@ -397,6 +388,7 @@ namespace SoftwaretechInventory
             Controls.Add(playerLevelDisplay);
             Controls.Add(playerLevelProgress);
             Controls.Add(pictureBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "InventoryForm";
             Text = "Inventory";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -435,8 +427,6 @@ namespace SoftwaretechInventory
         private PictureBox shipbody2;
         private PictureBox shipbody3;
         private PictureBox shipbodyEquiped;
-        private Label label1;
-        private Label label2;
         private Label label3;
         private Button backButton;
         private Panel panel1;

@@ -46,7 +46,7 @@
             // volumeTrackBar
             // 
             volumeTrackBar.BackColor = SystemColors.ControlDarkDark;
-            volumeTrackBar.Location = new Point(286, 71);
+            volumeTrackBar.Location = new Point(221, 71);
             volumeTrackBar.Margin = new Padding(3, 4, 3, 4);
             volumeTrackBar.Maximum = 100;
             volumeTrackBar.Name = "volumeTrackBar";
@@ -92,7 +92,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Mongolian Baiti", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(327, 43);
+            label2.Location = new Point(221, 46);
             label2.Name = "label2";
             label2.Size = new Size(134, 21);
             label2.TabIndex = 2;
@@ -102,7 +102,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Mongolian Baiti", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(327, 182);
+            label3.Location = new Point(221, 200);
             label3.Name = "label3";
             label3.Size = new Size(146, 21);
             label3.TabIndex = 4;
@@ -111,7 +111,7 @@
             // volumeTrackBar2
             // 
             volumeTrackBar2.BackColor = SystemColors.ControlDarkDark;
-            volumeTrackBar2.Location = new Point(286, 207);
+            volumeTrackBar2.Location = new Point(221, 225);
             volumeTrackBar2.Margin = new Padding(3, 4, 3, 4);
             volumeTrackBar2.Maximum = 100;
             volumeTrackBar2.Name = "volumeTrackBar2";
@@ -123,7 +123,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(527, 71);
+            button2.Location = new Point(221, 117);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 2;
@@ -133,7 +133,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(527, 207);
+            button3.Location = new Point(221, 270);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 5;

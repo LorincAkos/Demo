@@ -32,11 +32,12 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(584, 561);
+            ClientSize = new Size(582, 553);
             DoubleBuffered = true;
+            Margin = new Padding(3, 4, 3, 4);
             MaximumSize = new Size(600, 600);
             MinimumSize = new Size(600, 600);
             Name = "Form1";

@@ -46,5 +46,6 @@ namespace Demo
         {
             pages.SelectTab(((Control)sender).Text);
         }
+
     }
 }
