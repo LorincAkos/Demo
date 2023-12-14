@@ -95,14 +95,13 @@
             // 
             // Game
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(665, 737);
+            ClientSize = new Size(584, 561);
             DoubleBuffered = true;
-            Margin = new Padding(3, 4, 3, 4);
-            MaximumSize = new Size(683, 784);
-            MinimumSize = new Size(683, 784);
+            MaximumSize = new Size(600, 600);
+            MinimumSize = new Size(600, 600);
             Name = "Game";
             Text = "Game";
             Paint += Game_Paint;

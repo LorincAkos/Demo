@@ -56,7 +56,7 @@ namespace Demo
             {
                 ImageAnimator.Animate(enemy[i].enemy, this.Animator);
             }
-            
+
         }
 
         private void AmmoGeneration()
@@ -305,7 +305,7 @@ namespace Demo
                 }
 
 
-                if ((Player.x >= enemy[i].X && Player.y+32 >= enemy[i].Y && Player.x  <= enemy[i].X + 32 && Player.y+32 <= enemy[i].Y + 40) || (Player.x + 32 >= enemy[i].X && Player.y+32 >= enemy[i].Y && Player.x + 32 <= enemy[i].X + 32 && Player.y+32 <= enemy[i].Y + 40) || (Player.x+32 >= enemy[i].X && Player.y >= enemy[i].Y && Player.x+32 <= enemy[i].X + 32 && Player.y <= enemy[i].Y + 40) || (Player.x >= enemy[i].X && Player.y >= enemy[i].Y && Player.x <= enemy[i].X + 32 && Player.y <= enemy[i].Y + 40))
+                if ((Player.x >= enemy[i].X && Player.y + 32 >= enemy[i].Y && Player.x <= enemy[i].X + 32 && Player.y + 32 <= enemy[i].Y + 40) || (Player.x + 32 >= enemy[i].X && Player.y + 32 >= enemy[i].Y && Player.x + 32 <= enemy[i].X + 32 && Player.y + 32 <= enemy[i].Y + 40) || (Player.x + 32 >= enemy[i].X && Player.y >= enemy[i].Y && Player.x + 32 <= enemy[i].X + 32 && Player.y <= enemy[i].Y + 40) || (Player.x >= enemy[i].X && Player.y >= enemy[i].Y && Player.x <= enemy[i].X + 32 && Player.y <= enemy[i].Y + 40))
                 {
                     enemy[i].X = RandomNumberGenerator.GenerateNumber(0, 500);
                     enemy[i].Y = -30;
